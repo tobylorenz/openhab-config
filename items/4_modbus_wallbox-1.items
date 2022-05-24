@@ -1,0 +1,298 @@
+// Bender CC613 items via Modbus TCP binding
+
+// 100
+// Returns the Ebee Application version number (example: 0.91 = {0x30, 0x2E, 0x39, 0x31) 4.40 = {0x34, 0x2E, 0x34, 0x34}).
+Number Wallbox1_Modbus_100 "Wallbox-1 - Firmwareversion [JS(bender_modbus_100.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_100:Reg_100:number" }
+
+// 104
+// Charge Point status according to the OCPP spec. enumaration
+Number Wallbox1_Modbus_104 "Wallbox-1 - OCPP CP Status [MAP(bender_modbus_104.map):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_104:Reg_104:number" }
+// Aggregated error states (see Spec. sheet for mask mappings)
+Number Wallbox1_Modbus_105 "Wallbox-1 - Error Codes 1" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_104:Reg_105:number" }
+// Aggregated error states (see Spec. sheet for mask mappings)
+Number Wallbox1_Modbus_107 "Wallbox-1 - Error Codes 2" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_104:Reg_107:number" }
+// Aggregated error states (see Spec. sheet for mask mappings)
+Number Wallbox1_Modbus_109 "Wallbox-1 - Error Codes 3" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_104:Reg_109:number" }
+// Aggregated error states (see Spec. sheet for mask mappings)
+Number Wallbox1_Modbus_111 "Wallbox-1 - Error Codes 4" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_104:Reg_111:number" }
+
+// 120
+// Ebee Modbus TCP Server Protocol Version number (example: 0.6 = {0x30, 0x2E, 0x36}).
+Number Wallbox1_Modbus_120 "Wallbox-1 - Protocol Version" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_120:Reg_120:number" }
+// A=1, B=2, C=3, D=4, E=5
+Number Wallbox1_Modbus_122 "Wallbox-1 - Vehicle (Control Pilot) state [MAP(bender_modbus_122.map):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_120:Reg_122:number" }
+// A = 0x0A, B = 0x0B, etc.
+Number Wallbox1_Modbus_123 "Wallbox-1 - Vehicle (Control Pilot) state in Hex. format [MAP(bender_modbus_123.map):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_120:Reg_123:number" }
+// Get/Set available/unavailable
+Number Wallbox1_Modbus_124 "Wallbox-1 - Charge Point availability [MAP(bender_modbus_124.map):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_120:Reg_124:number" }
+
+// 131
+// Max. charge current under communication failure
+Number:ElectricCurrent Wallbox1_Modbus_131 "Wallbox-1 - Safe Current (Amps.) [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_131:number" }
+// Communication timeout
+Number:Time Wallbox1_Modbus_132 "Wallbox-1 - Comm. Timeout (seconds) [%d s]" (gWallbox1) ["Measurement", "Duration"] {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_132:number" }
+//
+Number:ElectricCurrent Wallbox1_Modbus_133 "Wallbox-1 - Hardware current limit [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_133:number" }
+//
+Number:ElectricCurrent Wallbox1_Modbus_134 "Wallbox-1 - Operator current limit [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_134:number" }
+//
+Number Wallbox1_Modbus_135 "Wallbox-1 - RCMB Mode" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_135:number" }
+//
+Number Wallbox1_Modbus_136 "Wallbox-1 - RCMB Last RMS value (integral part)" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_136:number" }
+//
+Number Wallbox1_Modbus_137 "Wallbox-1 - RCMB Last RMS value (fractional part)" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_137:number" }
+//
+Number Wallbox1_Modbus_138 "Wallbox-1 - RCMB Last DC value (integral part)" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_138:number" }
+//
+Number Wallbox1_Modbus_139 "Wallbox-1 - RCMB Last DC value (fractional part)" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_139:number" }
+//
+Switch Wallbox1_Modbus_140 "Wallbox-1 - Relays State" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_140:number" }
+// This register is a device identifier and always returns the value 0xEBEE (decimal 60398)
+Number Wallbox1_Modbus_141 "Wallbox-1 - Device ID [MAP(bender_modbus_141.map):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_141:number" }
+// ChargePoint Model. Bytes 0 to 3.
+Number Wallbox1_Modbus_142 "Wallbox-1 - Model der Ladestation [JS(bender_modbus_142_144_146_148_150.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_142:number" }
+// ChargePoint Model. Bytes 4 to 7.
+Number Wallbox1_Modbus_144 "Wallbox-1 - Model der Ladestation [JS(bender_modbus_142_144_146_148_150.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_144:number" }
+// ChargePoint Model. Bytes 8 to 11.
+Number Wallbox1_Modbus_146 "Wallbox-1 - Model der Ladestation [JS(bender_modbus_142_144_146_148_150.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_146:number" }
+// ChargePoint Model. Bytes 12 to 15.
+Number Wallbox1_Modbus_148 "Wallbox-1 - Model der Ladestation [JS(bender_modbus_142_144_146_148_150.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_148:number" }
+// ChargePoint Model. Bytes 16 to 19.
+Number Wallbox1_Modbus_150 "Wallbox-1 - Model der Ladestation [JS(bender_modbus_142_144_146_148_150.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_150:number" }
+// Status of plug lock detection
+Switch Wallbox1_Modbus_152 "Wallbox-1 - Plug lock detect" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_131:Reg_152:number" }
+
+// 200
+// Energy in Wh. (phase 1) from primary meter
+Number:Energy Wallbox1_Modbus_200 "Wallbox-1 - Energy L1 [%d Wh]" (gWallbox1) ["Measurement", "Energy"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_200:number" }
+// Energy in Wh. (phase 2) from primary meter
+Number:Energy Wallbox1_Modbus_202 "Wallbox-1 - Energy L2 [%d Wh]" (gWallbox1) ["Measurement", "Energy"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_202:number" }
+// Energy in Wh. (phase 3) from primary meter
+Number:Energy Wallbox1_Modbus_204 "Wallbox-1 - Energy L3 [%d Wh]" (gWallbox1) ["Measurement", "Energy"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_204:number" }
+// Power in W (phase 1) from primary meter
+Number:Power Wallbox1_Modbus_206 "Wallbox-1 - Power L1 [%d W]" (gWallbox1) ["Measurement", "Power"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_206:number" }
+// Power in W (phase 2) from primary meter
+Number:Power Wallbox1_Modbus_208 "Wallbox-1 - Power L2 [%d W]" (gWallbox1) ["Measurement", "Power"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_208:number" }
+// Power in W (phase 3) from primary meter
+Number:Power Wallbox1_Modbus_210 "Wallbox-1 - Power L3 [%d W]" (gWallbox1) ["Measurement", "Power"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_210:number" }
+// Current in mA (phase 1) from primary meter
+Number:ElectricCurrent Wallbox1_Modbus_212 "Wallbox-1 - Current L1 [%d mA]" (gWallbox1) ["Measurement", "Current"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_212:number" }
+// Current in mA (phase 2) from primary meter
+Number:ElectricCurrent Wallbox1_Modbus_214 "Wallbox-1 - Current L2 [%d mA]" (gWallbox1) ["Measurement", "Current"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_214:number" }
+// Current in mA (phase 3) from primary meter
+Number:ElectricCurrent Wallbox1_Modbus_216 "Wallbox-1 - Current L3 [%d mA]" (gWallbox1) ["Measurement", "Current"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_216:number" }
+// Total Energy in Wh. from primary meter
+Number:Energy Wallbox1_Modbus_218 "Wallbox-1 - Total Energy [%d Wh]" (gWallbox1) ["Measurement", "Energy"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_218:number" }
+// Total Power in Wh. from primary meter
+Number:Power Wallbox1_Modbus_220 "Wallbox-1 - Total Power [%d W]" (gWallbox1) ["Measurement", "Power"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_220:number" }
+// Returns the voltage of phase 1 of the ocpp meter in V.
+Number:ElectricPotential Wallbox1_Modbus_222 "Wallbox-1 - Voltage L1 [%d V]" (gWallbox1) ["Measurement", "Voltage"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_222:number" }
+// Returns the voltage of phase 2 of the ocpp meter in V.
+Number:ElectricPotential Wallbox1_Modbus_224 "Wallbox-1 - Voltage L2 [%d V]" (gWallbox1) ["Measurement", "Voltage"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_224:number" }
+// Returns the voltage of phase 3 of the ocpp meter in V.
+Number:ElectricPotential Wallbox1_Modbus_226 "Wallbox-1 - Voltage L3 [%d V]" (gWallbox1) ["Measurement", "Voltage"] {
+    channel="modbus:data:wallbox-1:Poll_200:Reg_226:number" }
+
+// 500
+Number:ElectricCurrent Wallbox1_Modbus_500 "Wallbox-1 - Energy Manager Main State [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_500:number" }
+Number:ElectricCurrent Wallbox1_Modbus_501 "Wallbox-1 - Temperature Monitoring State [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_501:number" }
+Number:ElectricCurrent Wallbox1_Modbus_502 "Wallbox-1 - External Input State [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_502:number" }
+Number:ElectricCurrent Wallbox1_Modbus_503 "Wallbox-1 - OCPP Smart Charging State [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_503:number" }
+Number:ElectricCurrent Wallbox1_Modbus_504 "Wallbox-1 - Operator Current Limit [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_504:number" }
+Number:ElectricCurrent Wallbox1_Modbus_505 "Wallbox-1 - DLM Current Applied [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_505:number" }
+Number:ElectricCurrent Wallbox1_Modbus_506 "Wallbox-1 - ISO 15118 State [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_506:number" }
+Number:ElectricCurrent Wallbox1_Modbus_507 "Wallbox-1 - Eichrecht State [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_507:number" }
+Number:ElectricCurrent Wallbox1_Modbus_508 "Wallbox-1 - Vehicle If State [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_508:number" }
+Number:ElectricCurrent Wallbox1_Modbus_509 "Wallbox-1 - Error Handler State [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_500:Reg_509:number" }
+
+// 600
+// Indicates the DLM mode configured for this device.
+Number Wallbox1_Modbus_600 "Wallbox-1 - DLM Mode [MAP(bender_modbus_600.map):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_600:Reg_600:number" }
+
+// 610
+// Overall current limit for DLM available for EVs
+Number:ElectricCurrent Wallbox1_Modbus_610 "Wallbox-1 - DLM EVSE Sub-distribution Limit L1 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_610:Reg_610:number" }
+// Overall current limit for DLM available for EVs
+Number:ElectricCurrent Wallbox1_Modbus_611 "Wallbox-1 - DLM EVSE Sub-distribution Limit L2 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_610:Reg_611:number" }
+// Overall current limit for DLM available for EVs
+Number:ElectricCurrent Wallbox1_Modbus_612 "Wallbox-1 - DLM EVSE Sub-distribution Limit L3 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_610:Reg_612:number" }
+// Operator current limit for DLM available for distribution to EVs
+Number:ElectricCurrent Wallbox1_Modbus_613 "Wallbox-1 - DLM Operator EVSE Sub-distribution Limit L1 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_610:Reg_613:number" }
+// Operator current limit for DLM available for distribution to EVs
+Number:ElectricCurrent Wallbox1_Modbus_614 "Wallbox-1 - DLM Operator EVSE Sub-distribution Limit L2 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_610:Reg_614:number" }
+// Operator current limit for DLM available for distribution to EVs
+Number:ElectricCurrent Wallbox1_Modbus_615 "Wallbox-1 - DLM Operator EVSE Sub-distribution Limit L3 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_610:Reg_615:number" }
+
+// 620
+// Value of this register is 1 when External Meter is enabled, 0 when disabled
+Switch Wallbox1_Modbus_620 "Wallbox-1 - DLM External Meter support" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_620:Reg_620:number" }
+// The number of DLM Slaves connected to this Master device
+Number Wallbox1_Modbus_621 "Wallbox-1 - DLM Number of Slaves connected" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_620:Reg_621:number" }
+
+// 630
+// Overall Current (A) the DLM Master is currently applying (sum of current distributed among the slaves)
+Number:ElectricCurrent Wallbox1_Modbus_630 "Wallbox-1 - DLM Overall Current applied L1 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_630:Reg_630:number" }
+// Overall Current (A) the DLM Master is currently applying (sum of current distributed among the slaves)
+Number:ElectricCurrent Wallbox1_Modbus_631 "Wallbox-1 - DLM Overall Current applied L2 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_630:Reg_631:number" }
+// Overall Current (A) the DLM Master is currently applying (sum of current distributed among the slaves)
+Number:ElectricCurrent Wallbox1_Modbus_632 "Wallbox-1 - DLM Overall Current applied L3 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_630:Reg_632:number" }
+// Overall Current (A) the DLM Master has available to distribute among the slaves
+Number:ElectricCurrent Wallbox1_Modbus_633 "Wallbox-1 - DLM Overall Current available L1 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_630:Reg_633:number" }
+// Overall Current (A) the DLM Master has available to distribute among the slaves
+Number:ElectricCurrent Wallbox1_Modbus_634 "Wallbox-1 - DLM Overall Current available L2 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_630:Reg_634:number" }
+// Overall Current (A) the DLM Master has available to distribute among the slaves
+Number:ElectricCurrent Wallbox1_Modbus_635 "Wallbox-1 - DLM Overall Current available L3 [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_630:Reg_635:number" }
+
+// 701
+// Scheduled departure time (format is `hhmmss` in big-endian packed BCD with left zero padding) – 15118 only
+Number Wallbox1_Modbus_701 "Wallbox-1 - Scheduled Time (hhmmss)" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_701:number" }
+// Scheduled departure time (format is `ddmmyy` in big-endian packed BCD with left zero padding) – 15118 only
+Number Wallbox1_Modbus_703 "Wallbox-1 - Scheduled Date (yymmdd)" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_703:number" }
+// Sum of charged energy for the current session (Wh)
+Number:Energy Wallbox1_Modbus_705 "Wallbox-1 - (deprecated) Charged Energy [%d Wh]" (gWallbox1) ["Measurement", "Energy"] {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_705:number" }
+// The maximum current that's being signaled to the EV for charging
+Number:ElectricCurrent Wallbox1_Modbus_706 "Wallbox-1 - Angebotener Strom [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_706:number" }
+// Start time of charging process
+Number Wallbox1_Modbus_707 "Wallbox-1 - Start Time (hhmmss)" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_707:number" }
+// Duration since beginning of charge
+Number:Time Wallbox1_Modbus_709 "Wallbox-1 - (deprecated) Charging Duration (seconds) [%d s]" (gWallbox1) ["Measurement", "Duration"] {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_709:number" }
+// End time of charging process
+Number Wallbox1_Modbus_710 "Wallbox-1 - End Time (hhmmss)" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_710:number" }
+// Minimum current limit for charging
+Number:ElectricCurrent Wallbox1_Modbus_712 "Wallbox-1 - Minimum current limit [%d A]" (gWallbox1) ["Setpoint", "Current"] {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_712:number" }
+// Returns the amount of energy in Wh required by the EV
+Number:Energy Wallbox1_Modbus_713 "Wallbox-1 - EV Required Energy (Wh) [%d Wh]" (gWallbox1) ["Energy"] {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_713:number" }
+// This is the maximum current with which the EV can charge
+Number:ElectricCurrent Wallbox1_Modbus_715 "Wallbox-1 - Max. Current EV [%d A]" (gWallbox1) ["Current"] {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_715:number" }
+// Sum of charged energy for the current session (Wh)
+Number:Energy Wallbox1_Modbus_716 "Wallbox-1 - Charged Energy [%d Wh]" (gWallbox1) ["Energy"] {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_716:number" }
+// Duration since beginning of charge
+Number:Time Wallbox1_Modbus_718 "Wallbox-1 - Charging Duration (seconds) [%d s]" (gWallbox1) ["Duration"] {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_718:number" }
+// User ID (OCPP IdTag) from the current session. Bytes 0 to 3.
+Number Wallbox1_Modbus_720 "Wallbox-1 - User ID [JS(bender_modbus_720_722_724_726_728.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_720:number" }
+// User ID (OCPP IdTag) from the current session. Bytes 4 to 7.
+Number Wallbox1_Modbus_722 "Wallbox-1 - User ID [JS(bender_modbus_720_722_724_726_728.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_722:number" }
+// User ID (OCPP IdTag) from the current session. Bytes 8 to 11.
+Number Wallbox1_Modbus_724 "Wallbox-1 - User ID [JS(bender_modbus_720_722_724_726_728.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_724:number" }
+// User ID (OCPP IdTag) from the current session. Bytes 12 to 15.
+Number Wallbox1_Modbus_726 "Wallbox-1 - User ID [JS(bender_modbus_720_722_724_726_728.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_726:number" }
+// User ID (OCPP IdTag) from the current session. Bytes 16 to 19.
+Number Wallbox1_Modbus_728 "Wallbox-1 - User ID [JS(bender_modbus_720_722_724_726_728.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_701:Reg_728:number" }
+
+// 740
+// Returns 1 if an EV currently connected is a smart vehicle, or 0 if no EV connected or it is not a smart vehicle
+Switch Wallbox1_Modbus_740 "Wallbox-1 - 15118 Smart vehicle detected" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_740:Reg_740:number" }
+// ASCII representation of the Hex. Values corresponding to the EVCCID. Bytes 0 to 3.
+Number Wallbox1_Modbus_741 "Wallbox-1 - EVCCID - 15118 only [JS(bender_modbus_741_743_745.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_740:Reg_741:number" }
+// ASCII representation of the Hex. Values corresponding to the EVCCID. Bytes 4 to 7.
+Number Wallbox1_Modbus_743 "Wallbox-1 - EVCCID - 15118 only [JS(bender_modbus_741_743_745.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_740:Reg_743:number" }
+// ASCII representation of the Hex. Values corresponding to the EVCCID. Bytes 8 to 11.
+Number Wallbox1_Modbus_745 "Wallbox-1 - EVCCID - 15118 only [JS(bender_modbus_741_743_745.js):%s]" (gWallbox1) {
+    channel="modbus:data:wallbox-1:Poll_740:Reg_745:number" }
+
+// 1000
+// Current limit of the HEMS module in Amps
+Number Wallbox1_Modbus_1000 "Wallbox-1 - Hems Current Limit (A) [%d A]" (gWallbox1) ["Setpoint", "Current"] {
+    channel="modbus:data:wallbox-1:Poll_1000:Reg_1000:number" }
+
+// 1110
+// Write user ID (OCPP IdTag) for the current session. Bytes 0 to 3.
+// Number Wallbox1_Modbus_1110 "Wallbox-1 - User ID" (gWallbox1) {
+//     channel="modbus:data:wallbox-1:Poll_1110:Reg_1110:number" }
+// Write user ID (OCPP IdTag) for the current session. Bytes 4 to 7.
+// Number Wallbox1_Modbus_1112 "Wallbox-1 - User ID" (gWallbox1) {
+//     channel="modbus:data:wallbox-1:Poll_1110:Reg_1112:number" }
+// Write user ID (OCPP IdTag) for the current session. Bytes 8 to 11.
+// Number Wallbox1_Modbus_1114 "Wallbox-1 - User ID" (gWallbox1) {
+//     channel="modbus:data:wallbox-1:Poll_1110:Reg_1114:number" }
+// Write user ID (OCPP IdTag) for the current session. Bytes 12 to 15.
+// Number Wallbox1_Modbus_1116 "Wallbox-1 - User ID" (gWallbox1) {
+//     channel="modbus:data:wallbox-1:Poll_1110:Reg_1116:number" }
+// Write user ID (OCPP IdTag) for the current session. Bytes 16 to 19.
+// Number Wallbox1_Modbus_1118 "Wallbox-1 - User ID" (gWallbox1) {
+//     channel="modbus:data:wallbox-1:Poll_1110:Reg_1118:number" }

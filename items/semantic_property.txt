@@ -1,0 +1,28 @@
+- None
+- Temperature / Temperatur
+- Light / Licht
+- ColorTemperature / Farbtemperatur
+- Humidity
+- Presence
+- Pressure
+- Smoke
+- Noise
+- Rain
+- Wind
+- Water
+- CO2
+- CO
+- Energy / Energie
+- Power / Leistung
+- Voltage / Spannung
+- Current / Strom
+- Frequency / Frequenz
+- Gas
+- SoundVolume
+- Oil
+- Duration
+- Level / Ebene
+- Opening
+- Timestamp
+- Ultraviolet
+- Vibration

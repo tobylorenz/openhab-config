@@ -1,0 +1,65 @@
+// http://wallbox-1/legacy/doc/doc_3
+
+Thing http:url:wallbox-1 "Bender CC613" @ "Garage" [
+    baseURL="http://wallbox-1/rest",
+    refresh=5,
+    contentType="text/plain"
+] {
+    Channels:
+        Type string : conn_state "conn_state" [ stateExtension="conn_state" ]
+        // event/conn_state
+        Type string : auth_state "auth_state" [ stateExtension="auth_state" ]
+        // event/auth_state
+        Type string : auth_uid "auth_uid" [ stateExtension="auth_uid" ]
+        // event/auth_uid
+        Type number : time_since_charging_start "time_since_charging_start" [ stateExtension="time_since_charging_start" ]
+        Type number : meter_wh "meter_wh" [ stateExtension="meter_wh" ]
+        // event/meter_wh
+        Type number : power_w "power_w" [ stateExtension="power_w" ]
+        // event/power_w
+        Type number : transaction_wh "transaction_wh" [ stateExtension="transaction_wh" ]
+        // event/transaction_wh
+        Type string : display_text "display_text" [ stateExtension="display_text" ]
+        // event/display_text
+        Type string : cp_id "cp_id" [ stateExtension="cp_id" ]
+        Type string : ocpp_state "ocpp_state" [ stateExtension="ocpp_state" ]
+        Type string : type2_state "type2_state" [ stateExtension="type2_state" ]
+        Type string : type2_proximity "type2_proximity" [ stateExtension="type2_proximity" ]
+        Type number : sig_current "sig_current" [ stateExtension="sig_current" ]
+        Type string : schuko_state "schuko_state" [ stateExtension="schuko_state" ]
+        Type string : backend_conn_state "backend_conn_state" [ stateExtension="backend_conn_state" ]
+        Type string : free_charging "free_charging" [ stateExtension="free_charging" ]
+        Type string : slave_state "slave_state" [ stateExtension="slave_state" ]
+        Type string : ocpp_meter_cfg "ocpp_meter_cfg" [ stateExtension="ocpp_meter_cfg" ]
+        Type string : ocpp_meter_serial "ocpp_meter_serial" [ stateExtension="ocpp_meter_serial" ]
+        Type string : current_a "current_a" [ stateExtension="current_a" ]
+        Type number : energy_man_current "energy_man_current" [ stateExtension="energy_man_current" ]
+        Type string : ambient_temp "ambient_temp" [ stateExtension="ambient_temp" ]
+        Type string : firmware_ver "firmware_ver" [ stateExtension="firmware_ver" ]
+        Type string : cc_serial_n "cc_serial_n" [ stateExtension="cc_serial_n" ]
+        Type string : manuf_serial_n "manuf_serial_n" [ stateExtension="manuf_serial_n" ]
+        Type number : con_cycles_schuko "con_cycles_schuko" [ stateExtension="con_cycles_schuko" ]
+        Type number : con_cycles_type2 "con_cycles_type2" [ stateExtension="con_cycles_type2" ]
+        Type number : max_current "max_current" [ stateExtension="max_current" ]
+        Type string : rcmb_state "rcmb_state" [ stateExtension="rcmb_state" ]
+        // event/rcmb_state
+        Type string : rcmb_max "rcmb_max" [ stateExtension="rcmb_max" ]
+        Type string : rcmb_values "rcmb_values" [ stateExtension="rcmb_values" ]
+        Type string : cable_attached "cable_attached" [ stateExtension="cable_attached" ]
+        Type string : schuko_cfg "schuko_cfg" [ stateExtension="schuko_cfg" ]
+        Type string : rcd_state "rcd_state" [ stateExtension="rcd_state" ]
+        // event/rcd_state
+        Type string : mcb_type2_state "mcb_type2_state" [ stateExtension="mcb_type2_state" ]
+        // event/mcb_type2_state
+        Type string : mcb_schuko_state "mcb_schuko_state" [ stateExtension="mcb_schuko_state" ]
+        // event/mcb_schuko_state
+        Type string : cp_vendor "cp_vendor" [ stateExtension="cp_vendor" ]
+        Type string : errors "errors" [ stateExtension="errors" ]
+        Type string : cp_model "cp_model" [ stateExtension="cp_model" ]
+        Type string : full_state "full_state" [ stateExtension="full_state" ]
+        // event/full_state
+//        Type string : dev_dbg "dev_dbg" [ stateExtension="dev_dbg" ]
+//        Type string : ocpp "ocpp" [ stateExtension="ocpp" ]
+//        Type string : ps "ps" [ stateExtension="ps" ]
+//        Type string : charging_diag "charging_diag" [ stateExtension="charging_diag" ]
+}

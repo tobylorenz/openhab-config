@@ -1,0 +1,5 @@
+NULL=NULL
+
+#typ_2_verriegelungsantrieb_blockiert_und_kann_nicht_entriegeln;;ocpp-zähler_kommuniziert_nicht;;externer_zähler_kommuniziert_nicht
+
+#plug_locking_failed;;rfid_reader_not_communicating

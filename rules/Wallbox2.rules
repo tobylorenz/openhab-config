@@ -1,0 +1,39 @@
+// Splitten der empfagenen Daten der Wallbox 2
+
+rule "Wallbox2 - Current"
+when
+    Item Wallbox2_current_a_str received update
+then
+    if (Wallbox2_current_a_str.state == "not_available") {
+        Wallbox2_current_a_L1.postUpdate(0)
+        Wallbox2_current_a_L2.postUpdate(0)
+        Wallbox2_current_a_L3.postUpdate(0)
+    } else {
+        Wallbox2_current_a_L1.postUpdate(Float::parseFloat(String::format("%s", Wallbox2_current_a_str.state).split(',').get(0)))
+        Wallbox2_current_a_L2.postUpdate(Float::parseFloat(String::format("%s", Wallbox2_current_a_str.state).split(',').get(1)))
+        Wallbox2_current_a_L3.postUpdate(Float::parseFloat(String::format("%s", Wallbox2_current_a_str.state).split(',').get(2)))
+    }
+end
+
+rule "Wallbox2 - Ambient Temperature"
+when
+    Item Wallbox2_ambient_temp_str received update
+then
+    Wallbox2_ambient_temp.postUpdate(Float::parseFloat(String::format("%s", Wallbox2_ambient_temp_str.state).replace('+', '')))
+end
+
+rule "Wallbox2 - RCMB/FI Last Transaction Maximum"
+when
+    Item Wallbox2_rcmb_max_str received update
+then
+    Wallbox2_rcmb_max_rms.postUpdate(Float::parseFloat(String::format("%s", Wallbox2_rcmb_max_str.state).split(',').get(0)))
+    Wallbox2_rcmb_max_dc.postUpdate(Float::parseFloat(String::format("%s", Wallbox2_rcmb_max_str.state).split(',').get(1)))
+end
+
+rule "Wallbox2 - RCMB/FI Current Values"
+when
+    Item Wallbox2_rcmb_values_str received update
+then
+    Wallbox2_rcmb_values_rms.postUpdate(Float::parseFloat(String::format("%s", Wallbox2_rcmb_values_str.state).split(',').get(0)))
+    Wallbox2_rcmb_values_dc.postUpdate(Float::parseFloat(String::format("%s", Wallbox2_rcmb_values_str.state).split(',').get(1)))
+end

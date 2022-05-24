@@ -1,0 +1,5 @@
+Thing mqtt:topic:landroid:command "Worx Landroid" (mqtt:broker:server) @ "Garten" {
+    Channels:
+        Type string : out "Command Out" [ stateTopic = "landroid/commandOut" ]
+        // Type string : in "Command In" [ stateTopic = "landroid/commandIn" ]
+}

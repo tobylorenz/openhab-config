@@ -1,0 +1,12 @@
+NULL=NULL
+
+available=
+occupied=
+reserved=
+unavailable=
+faulted=
+preparing=
+charging=
+suspendedevse=
+suspendedev=
+finishing=

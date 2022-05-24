@@ -1,0 +1,38 @@
+// Gesamtverbrauch, PV-Eigenverbrauch und PV-Überschuss berechnen
+
+rule "Stromzaehler"
+when
+    Item StromzaehlerNetz_Leistung received update or
+    Item StromzaehlerPV_Leistung received update
+then
+    StromzaehlerPV_Leistung_absolut.postUpdate(- (StromzaehlerPV_Leistung.state as Number).floatValue)
+
+    Gesamtverbrauch_Leistung.postUpdate((StromzaehlerNetz_Leistung.state as Number).floatValue - (StromzaehlerPV_Leistung.state as Number).floatValue)
+
+    if ((StromzaehlerNetz_Leistung.state as Number).floatValue <= 0) {
+        PV_Ueberschuss_Leistung.postUpdate(- (StromzaehlerNetz_Leistung.state as Number).floatValue)
+    } else {
+        PV_Ueberschuss_Leistung.postUpdate(0)
+    }
+
+    if ((StromzaehlerPV_Leistung_absolut.state as Number).floatValue >= (Gesamtverbrauch_Leistung.state as Number).floatValue) {
+        PV_Eigenverbrauch_Leistung.postUpdate((Gesamtverbrauch_Leistung.state as Number).floatValue)
+    } else {
+        PV_Eigenverbrauch_Leistung.postUpdate((StromzaehlerPV_Leistung_absolut.state as Number).floatValue)
+    }
+
+    if ((StromzaehlerNetz_Leistung.state as Number).floatValue <= 0) {
+        Strompreis_gemischt.postUpdate((Strompreis_Einspeisung.state as Number).floatValue)
+    } else {
+        val float Anteil_Netzbezug = (StromzaehlerNetz_Leistung.state as Number).floatValue / (Gesamtverbrauch_Leistung.state as Number).floatValue
+        val float Anteil_Einspeisung = (StromzaehlerPV_Leistung_absolut.state as Number).floatValue / (Gesamtverbrauch_Leistung.state as Number).floatValue
+        val float Strompreis_neu = Anteil_Netzbezug * (Strompreis_Netzbezug.state as Number).floatValue + Anteil_Einspeisung * (Strompreis_Einspeisung.state as Number).floatValue
+        if (Strompreis_neu > (Strompreis_Netzbezug.state as Number).floatValue) {
+            Strompreis_neu = (Strompreis_Netzbezug.state as Number).floatValue
+        }
+        if (Strompreis_neu < (Strompreis_Einspeisung.state as Number).floatValue) {
+            Strompreis_neu = (Strompreis_Einspeisung.state as Number).floatValue
+        }
+        Strompreis_gemischt.postUpdate(Strompreis_neu)
+    }
+end

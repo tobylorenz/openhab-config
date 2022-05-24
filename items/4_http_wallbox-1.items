@@ -1,0 +1,101 @@
+// Bender CC613 items via HTTP binding
+
+String Wallbox1_conn_state "Wallbox-1 - Connection State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:conn_state" }
+String Wallbox1_auth_state "Wallbox-1 - Authorization State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:auth_state" }
+String Wallbox1_auth_uid "Wallbox-1 - Authorization UID" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:auth_uid" }
+Number:Time Wallbox1_time_since_charging_start "Wallbox-1 - Time Since Charging Start [%d s]" (gWallbox1) ["Measurement", "Duration"] {
+    channel="http:url:wallbox-1:time_since_charging_start" }
+Number:Energy Wallbox1_meter_wh "Wallbox-1 - Meter Energy Total [%d Wh]" (gWallbox1) ["Measurement", "Energy"] {
+    channel="http:url:wallbox-1:meter_wh" }
+Number:Power Wallbox1_power_w "Wallbox-1 - Power [%d W]" (gWallbox1) ["Measurement", "Power"] {
+    channel="http:url:wallbox-1:power_w" }
+Number:Energy Wallbox1_transaction_wh "Wallbox-1 - Energy Last Transaction [%d Wh]" (gWallbox1) ["Measurement", "Energy"] {
+    channel="http:url:wallbox-1:transaction_wh" }
+String Wallbox1_display_text "Wallbox-1 - Display Text" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:display_text" }
+String Wallbox1_cp_id "Wallbox-1 - ChargePoint ID" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:cp_id" }
+String Wallbox1_ocpp_state "Wallbox-1 - OCPP State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:ocpp_state" }
+String Wallbox1_type2_state "Wallbox-1 - Type2 State [MAP(bender_http_type2_state.map):%s]" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:type2_state" }
+String Wallbox1_type2_proximity "Wallbox-1 - Type2 Proximity" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:type2_proximity" }
+Number:ElectricCurrent Wallbox1_sig_current "Wallbox-1 - Signaled Current [%d A]" (gWallbox1) ["Setpoint", "Current"] {
+    channel="http:url:wallbox-1:sig_current" }
+String Wallbox1_schuko_state "Wallbox-1 - Schuko State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:schuko_state" }
+String Wallbox1_backend_conn_state "Wallbox-1 - Backend Connection State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:backend_conn_state" }
+String Wallbox1_free_charging "Wallbox-1 - Free Charging" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:free_charging" }
+String Wallbox1_slave_state "Wallbox-1 - Slave State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:slave_state" }
+String Wallbox1_ocpp_meter_cfg "Wallbox-1 - OCPP Meter Configuration [MAP(bender_http_ocpp_meter_cfg.map):%s]" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:ocpp_meter_cfg" }
+String Wallbox1_ocpp_meter_serial "Wallbox-1 - OCPP Meter Serial" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:ocpp_meter_serial" }
+String Wallbox1_current_a_str "Wallbox-1 - Current" (gWallbox1) ["Measurement"] {
+    channel="http:url:wallbox-1:current_a" }
+Number:ElectricCurrent Wallbox1_energy_man_current "Wallbox-1 - Energy Manager Current [%d A]" (gWallbox1) ["Status", "Current"] {
+    channel="http:url:wallbox-1:energy_man_current" }
+String Wallbox1_ambient_temp_str "Wallbox-1 - Ambient Temperature [%s °C]" (gWallbox1) ["Measurement", "Temperature"] {
+    channel="http:url:wallbox-1:ambient_temp" }
+String Wallbox1_firmware_ver "Wallbox-1 - Firmware Version" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:firmware_ver" }
+String Wallbox1_cc_serial_n "Wallbox-1 - Controller serial number" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:cc_serial_n" }
+String Wallbox1_cc_manuf_n "Wallbox-1 - Manufacturer serial number" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:manuf_serial_n" }
+Number:Dimensionless Wallbox1_con_cycles_schuko "Wallbox-1 - Contactor Cycles Schuko" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:con_cycles_schuko" }
+Number:Dimensionless Wallbox1_con_cycles_type2 "Wallbox-1 - Contactor Cycles Type2" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:con_cycles_type2" }
+Number:ElectricCurrent Wallbox1_max_current "Wallbox-1 - Maximum Current [%d A]" (gWallbox1) ["Status", "Current"] {
+    channel="http:url:wallbox-1:max_current" }
+String Wallbox1_rcmb_state "Wallbox-1 - RCMB/FI State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:rcmb_state" }
+String Wallbox1_rcmb_max_str "Wallbox-1 - RCMB/FI Last Transaction Maximum" (gWallbox1) ["Measurement"] {
+    channel="http:url:wallbox-1:rcmb_max" }
+String Wallbox1_rcmb_values_str "Wallbox-1 - RCMB/FI Current Values" (gWallbox1) ["Measurement"] {
+    channel="http:url:wallbox-1:rcmb_values" }
+String Wallbox1_cable_attached "Wallbox-1 - Cable Attached" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:cable_attached" }
+String Wallbox1_schuko_cfg "Wallbox-1 - Schuko Configuration" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:schuko_cfg" }
+String Wallbox1_rcd_state "Wallbox-1 - RCD/FI State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:rcd_state" }
+String Wallbox1_mcb_type2_state "Wallbox-1 - MCB/LS Type2 State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:mcb_type2_state" }
+String Wallbox1_mcb_schuko_state "Wallbox-1 - MCB/LS Schuko State" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:mcb_schuko_state" }
+String Wallbox1_cp_vendor "Wallbox-1 - ChargePoint Vendor" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:cp_vendor" }
+String Wallbox1_errors "Wallbox-1 - Errors" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:errors" }
+String Wallbox1_cp_model "Wallbox-1 - ChargePoint Model" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:cp_model" }
+//String Wallbox1_full_state "Wallbox-1 - Full State" (gWallbox1) ["Status"] {
+//    channel="http:url:wallbox-1:full_state" }
+//String Wallbox1_dev_dbg "Wallbox-1 - Development/Debug" (gWallbox1) ["Status"] {
+//    channel="http:url:wallbox-1:dev_dbg" }
+//String Wallbox1_ocpp "Wallbox-1 - OCPP" (gWallbox1) ["Status"] {
+//    channel="http:url:wallbox-1:ocpp" }
+//String Wallbox1_ps "Wallbox-1 - PS" (gWallbox1) ["Status"] {
+//    channel="http:url:wallbox-1:ps" }
+//String Wallbox1_charging_diag "Wallbox-1 - Charging Diag" (gWallbox1) ["Status"] {
+//    channel="http:url:wallbox-1:charging_diag" }
+
+String Wallbox1_conn_state_simple "Wallbox-1 - Connection State (Simple) [MAP(bender_http_conn_state_simple.map):%s]" (gWallbox1) ["Status"] {
+    channel="http:url:wallbox-1:conn_state" }
+Number:ElectricCurrent Wallbox1_current_a_L1 "Wallbox-1 - Current - L1 [%s A]" (gWallbox1) ["Measurement", "Current"]
+Number:ElectricCurrent Wallbox1_current_a_L2 "Wallbox-1 - Current - L2 [%s A]" (gWallbox1) ["Measurement", "Current"]
+Number:ElectricCurrent Wallbox1_current_a_L3 "Wallbox-1 - Current - L3 [%s A]" (gWallbox1) ["Measurement", "Current"]
+Number:Temperature Wallbox1_ambient_temp "Wallbox-1 - Ambient Temperature [%.2f °C]" (gWallbox1) ["Measurement", "Temperature"]
+Number:ElectricCurrent Wallbox1_rcmb_max_rms "Wallbox-1 - RCMB/FI Last Transaction Maximum - RMS [%.1f mA]" (gWallbox1) ["Measurement", "Current"]
+Number:ElectricCurrent Wallbox1_rcmb_max_dc "Wallbox-1 - RCMB/FI Last Transaction Maximum - DC [%.1f mA]" (gWallbox1) ["Measurement", "Current"]
+Number:ElectricCurrent Wallbox1_rcmb_values_rms "Wallbox-1 - RCMB/FI Current Values - RMS [%.1f mA]" (gWallbox1) ["Measurement", "Current"]
+Number:ElectricCurrent Wallbox1_rcmb_values_dc "Wallbox-1 - RCMB/FI Current Values - DC [%.1f mA]" (gWallbox1) ["Measurement", "Current"]

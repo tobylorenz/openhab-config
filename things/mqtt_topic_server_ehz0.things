@@ -1,0 +1,37 @@
+Thing mqtt:topic:server:ehz0 "Stromzähler Netz" (mqtt:broker:server) @ "Zählerschrank" {
+    Channels:
+        Type number : Bezug_Gesamt "Bezug Gesamt" [
+            stateTopic = "server/ehz0/1-0:1.8.0*255",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type number : Bezug_HT "Bezug HT" [
+            stateTopic = "server/ehz0/1-0:1.8.1*255",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type number : Bezug_NT "Bezug NT" [
+            stateTopic = "server/ehz0/1-0:1.8.2*255",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type number : Einspeisung_Gesamt "Einspeisung Gesamt" [
+            stateTopic = "server/ehz0/1-0:2.8.0*255",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type number : Einspeisung_HT "Einspeisung HT" [
+            stateTopic = "server/ehz0/1-0:2.8.1*255",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type number : Einspeisung_NT "Einspeisung NT" [
+            stateTopic = "server/ehz0/1-0:2.8.2*255",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type number : Leistung "Leistung" [
+            stateTopic = "server/ehz0/1-0:16.7.0*255",
+            unit = "W"
+        ]
+}

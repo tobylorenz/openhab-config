@@ -1,0 +1,219 @@
+Bridge modbus:tcp:wallbox-2 "Bender CC613" @ "Garage" [ host="10.2.1.42", port=502, id=1 ] {
+    Bridge poller Poll_100 "Poller 100" [ start=100, length=2, type="holding", refresh=1000 ] {
+        // Returns the Ebee Application version number (example: 0.91 = {0x30, 0x2E, 0x39, 0x31) 4.40 = {0x34, 0x2E, 0x34, 0x34}).
+        Thing data Reg_100 "Firmwareversion" [ readStart="100", readValueType="uint32" ]
+    }
+
+    Bridge poller Poll_104 "Poller 104" [ start=104, length=9, type="holding", refresh=1000 ] {
+        // Charge Point status according to the OCPP spec. enumaration
+        Thing data Reg_104 "OCPP CP Status" [ readStart="104", readValueType="uint16" ]
+        // Aggregated error states (see Spec. sheet for mask mappings)
+        Thing data Reg_105 "Error Codes 1" [ readStart="105", readValueType="uint32" ]
+        // Aggregated error states (see Spec. sheet for mask mappings)
+        Thing data Reg_107 "Error Codes 2" [ readStart="107", readValueType="uint32" ]
+        // Aggregated error states (see Spec. sheet for mask mappings)
+        Thing data Reg_109 "Error Codes 3" [ readStart="109", readValueType="uint32" ]
+        // Aggregated error states (see Spec. sheet for mask mappings)
+        Thing data Reg_111 "Error Codes 4" [ readStart="111", readValueType="uint32" ]
+    }
+
+    Bridge poller Poll_120 "Poller 120" [ start=120, length=5, type="holding", refresh=1000 ] {
+        // Ebee Modbus TCP Server Protocol Version number (example: 0.6 = {0x30, 0x2E, 0x36}).
+        Thing data Reg_120 "Protocol Version" [ readStart="120", readValueType="uint32" ]
+        // A=1, B=2, C=3, D=4, E=5
+        Thing data Reg_122 "Vehicle (Control Pilot) state" [ readStart="122", readValueType="uint16" ]
+        // A = 0x0A, B = 0x0B, etc.
+        Thing data Reg_123 "Vehicle (Control Pilot) state in Hex. format" [ readStart="123", readValueType="uint16" ]
+        // Get/Set available/unavailable
+        Thing data Reg_124 "Charge Point availability" [ readStart="124", readValueType="uint16", writeStart="124", writeValueType="uint16", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+    }
+
+    Bridge poller Poll_131 "Poller 131" [ start=131, length=22, type="holding", refresh=1000 ] {
+        // Max. charge current under communication failure
+        Thing data Reg_131 "Safe Current (Amps.)" [ readStart="131", readValueType="uint16", writeStart="131", writeValueType="uint16", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+        // Communication timeout
+        Thing data Reg_132 "Comm. Timeout (seconds)" [ readStart="132", readValueType="uint16", writeStart="132", writeValueType="uint16", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+        //
+        Thing data Reg_133 "Hardware current limit" [ readStart="133", readValueType="uint16" ]
+        //
+        Thing data Reg_134 "Operator current limit" [ readStart="134", readValueType="uint16" ]
+        //
+        Thing data Reg_135 "RCMB Mode" [ readStart="135", readValueType="uint16" ]
+        //
+        Thing data Reg_136 "RCMB Last RMS value (integral part)" [ readStart="136", readValueType="uint16" ]
+        //
+        Thing data Reg_137 "RCMB Last RMS value (fractional part)" [ readStart="137", readValueType="uint16" ]
+        //
+        Thing data Reg_138 "RCMB Last DC value (integral part)" [ readStart="138", readValueType="uint16" ]
+        //
+        Thing data Reg_139 "RCMB Last DC value (fractional part)" [ readStart="139", readValueType="uint16" ]
+        //
+        Thing data Reg_140 "Relays State" [ readStart="140", readValueType="uint16" ]
+        // This register is a device identifier and always returns the value 0xEBEE (decimal 60398)
+        Thing data Reg_141 "Device ID" [ readStart="141", readValueType="uint16" ]
+        // ChargePoint Model. Bytes 0 to 3.
+        Thing data Reg_142 "Model der Ladestation" [ readStart="142", readValueType="uint32" ]
+        // ChargePoint Model. Bytes 4 to 7.
+        Thing data Reg_144 "Model der Ladestation" [ readStart="144", readValueType="uint32" ]
+        // ChargePoint Model. Bytes 8 to 11.
+        Thing data Reg_146 "Model der Ladestation" [ readStart="146", readValueType="uint32" ]
+        // ChargePoint Model. Bytes 12 to 15.
+        Thing data Reg_148 "Model der Ladestation" [ readStart="148", readValueType="uint32" ]
+        // ChargePoint Model. Bytes 16 to 19.
+        Thing data Reg_150 "Model der Ladestation" [ readStart="150", readValueType="uint32" ]
+        // Status of plug lock detection
+        Thing data Reg_152 "Plug lock detect" [ readStart="152", readValueType="uint16" ]
+    }
+
+    Bridge poller Poll_200 "Poller 200" [ start=200, length=28, type="holding", refresh=1000 ] {
+        // Energy in Wh. (phase 1) from primary meter
+        Thing data Reg_200 "Energy L1" [ readStart="200", readValueType="int16" ]
+        // Energy in Wh. (phase 2) from primary meter
+        Thing data Reg_202 "Energy L2" [ readStart="202", readValueType="int16" ]
+        // Energy in Wh. (phase 3) from primary meter
+        Thing data Reg_204 "Energy L3" [ readStart="204", readValueType="int16" ]
+        // Power in W (phase 1) from primary meter
+        Thing data Reg_206 "Power L1" [ readStart="206", readValueType="uint32" ]
+        // Power in W (phase 2) from primary meter
+        Thing data Reg_208 "Power L2" [ readStart="208", readValueType="uint32" ]
+        // Power in W (phase 3) from primary meter
+        Thing data Reg_210 "Power L3" [ readStart="210", readValueType="uint32" ]
+        // Current in mA (phase 1) from primary meter
+        Thing data Reg_212 "Current L1" [ readStart="212", readValueType="uint32" ]
+        // Current in mA (phase 2) from primary meter
+        Thing data Reg_214 "Current L2" [ readStart="214", readValueType="uint32" ]
+        // Current in mA (phase 3) from primary meter
+        Thing data Reg_216 "Current L3" [ readStart="216", readValueType="uint32" ]
+        // Total Energy in Wh. from primary meter
+        Thing data Reg_218 "Total Energy" [ readStart="218", readValueType="uint32" ]
+        // Total Power in Wh. from primary meter
+        Thing data Reg_220 "Total Power" [ readStart="220", readValueType="uint32" ]
+        // Returns the voltage of phase 1 of the ocpp meter in V.
+        Thing data Reg_222 "Voltage L1" [ readStart="222", readValueType="uint32" ]
+        // Returns the voltage of phase 2 of the ocpp meter in V.
+        Thing data Reg_224 "Voltage L2" [ readStart="224", readValueType="uint32" ]
+        // Returns the voltage of phase 3 of the ocpp meter in V.
+        Thing data Reg_226 "Voltage L3" [ readStart="226", readValueType="uint32" ]
+    }
+
+    Bridge poller Poll_500 "Poller 500" [ start=500, length=10, type="holding", refresh=1000 ] {
+        Thing data Reg_500 "(Reserved)" [ readStart="500", readValueType="uint16" ]
+        Thing data Reg_501 "(Reserved)" [ readStart="501", readValueType="uint16" ]
+        Thing data Reg_502 "(Reserved)" [ readStart="502", readValueType="uint16" ]
+        Thing data Reg_503 "(Reserved)" [ readStart="503", readValueType="uint16" ]
+        Thing data Reg_504 "(Reserved)" [ readStart="504", readValueType="uint16" ]
+        Thing data Reg_505 "(Reserved)" [ readStart="505", readValueType="uint16" ]
+        Thing data Reg_506 "(Reserved)" [ readStart="506", readValueType="uint16" ]
+        Thing data Reg_507 "(Reserved)" [ readStart="507", readValueType="uint16" ]
+        Thing data Reg_508 "(Reserved)" [ readStart="508", readValueType="uint16" ]
+        Thing data Reg_509 "(Reserved)" [ readStart="509", readValueType="uint16" ]
+    }
+
+    Bridge poller Poll_600 "Poller 600" [ start=600, length=1, type="holding", refresh=1000 ] {
+        // Indicates the DLM mode configured for this device.
+        Thing data Reg_600 "DLM Mode" [ readStart="600", readValueType="uint16" ]
+    }
+
+    Bridge poller Poll_610 "Poller 610" [ start=610, length=6, type="holding", refresh=1000 ] {
+        // Overall current limit for DLM available for EVs
+        Thing data Reg_610 "DLM EVSE Sub-distribution Limit L1" [ readStart="610", readValueType="uint16" ]
+        // Overall current limit for DLM available for EVs
+        Thing data Reg_611 "DLM EVSE Sub-distribution Limit L2" [ readStart="611", readValueType="uint16" ]
+        // Overall current limit for DLM available for EVs
+        Thing data Reg_612 "DLM EVSE Sub-distribution Limit L3" [ readStart="612", readValueType="uint16" ]
+        // Operator current limit for DLM available for distribution to EVs
+        Thing data Reg_613 "DLM Operator EVSE Sub-distribution Limit L1" [ readStart="613", readValueType="uint16", writeStart="613", writeValueType="uint16", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+        // Operator current limit for DLM available for distribution to EVs
+        Thing data Reg_614 "DLM Operator EVSE Sub-distribution Limit L2" [ readStart="614", readValueType="uint16", writeStart="614", writeValueType="uint16", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+        // Operator current limit for DLM available for distribution to EVs
+        Thing data Reg_615 "DLM Operator EVSE Sub-distribution Limit L3" [ readStart="615", readValueType="uint16", writeStart="615", writeValueType="uint16", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+    }
+
+    Bridge poller Poll_620 "Poller 620" [ start=620, length=2, type="holding", refresh=1000 ] {
+        // Value of this register is 1 when External Meter is enabled, 0 when disabled
+        Thing data Reg_620 "DLM External Meter support" [ readStart="620", readValueType="uint16" ]
+        // The number of DLM Slaves connected to this Master device
+        Thing data Reg_621 "DLM Number of Slaves connected" [ readStart="621", readValueType="uint16" ]
+    }
+
+    Bridge poller Poll_630 "Poller 630" [ start=630, length=6, type="holding", refresh=1000 ] {
+        // Overall Current (A) the DLM Master is currently applying (sum of current distributed among the slaves)
+        Thing data Reg_630 "DLM Overall Current applied L1" [ readStart="630", readValueType="uint16" ]
+        // Overall Current (A) the DLM Master is currently applying (sum of current distributed among the slaves)
+        Thing data Reg_631 "DLM Overall Current applied L2" [ readStart="631", readValueType="uint16" ]
+        // Overall Current (A) the DLM Master is currently applying (sum of current distributed among the slaves)
+        Thing data Reg_632 "DLM Overall Current applied L3" [ readStart="632", readValueType="uint16" ]
+        // Overall Current (A) the DLM Master has available to distribute among the slaves
+        Thing data Reg_633 "DLM Overall Current available L1" [ readStart="633", readValueType="uint16" ]
+        // Overall Current (A) the DLM Master has available to distribute among the slaves
+        Thing data Reg_634 "DLM Overall Current available L2" [ readStart="634", readValueType="uint16" ]
+        // Overall Current (A) the DLM Master has available to distribute among the slaves
+        Thing data Reg_635 "DLM Overall Current available L3" [ readStart="635", readValueType="uint16" ]
+    }
+
+    Bridge poller Poll_701 "Poller 701" [ start=701, length=29, type="holding", refresh=1000 ] {
+        // Scheduled departure time (format is `hhmmss` in big-endian packed BCD with left zero padding) – 15118 only
+        Thing data Reg_701 "Scheduled Time (hhmmss)" [ readStart="701", readValueType="uint32" ]
+        // Scheduled departure time (format is `ddmmyy` in big-endian packed BCD with left zero padding) – 15118 only
+        Thing data Reg_703 "Scheduled Date (yymmdd)" [ readStart="703", readValueType="uint32" ]
+        // Sum of charged energy for the current session (Wh)
+        Thing data Reg_705 "(deprecated) Charged Energy" [ readStart="705", readValueType="uint16" ]
+        // The maximum current that's being signaled to the EV for charging
+        Thing data Reg_706 "Angebotener Strom" [ readStart="706", readValueType="uint16" ]
+        // Start time of charging process
+        Thing data Reg_707 "Start Time (hhmmss)" [ readStart="707", readValueType="uint32" ]
+        // Duration since beginning of charge
+        Thing data Reg_709 "(deprecated) Charging Duration (seconds)" [ readStart="709", readValueType="uint16" ]
+        // End time of charging process
+        Thing data Reg_710 "End Time (hhmmss)" [ readStart="710", readValueType="int32" ]
+        // Minimum current limit for charging
+        Thing data Reg_712 "Minimum current limit" [ readStart="712", readValueType="uint16" ]
+        // Returns the amount of energy in Wh required by the EV
+        Thing data Reg_713 "EV Required Energy (Wh)" [ readStart="713", readValueType="uint32" ]
+        // This is the maximum current with which the EV can charge
+        Thing data Reg_715 "Max. Current EV" [ readStart="715", readValueType="uint16" ]
+        // Sum of charged energy for the current session (Wh)
+        Thing data Reg_716 "Charged Energy" [ readStart="716", readValueType="uint32" ]
+        // Duration since beginning of charge
+        Thing data Reg_718 "Charging Duration (seconds)" [ readStart="718", readValueType="uint32" ]
+        // User ID (OCPP IdTag) from the current session. Bytes 0 to 3.
+        Thing data Reg_720 "User ID" [ readStart="720", readValueType="uint32" ]
+        // User ID (OCPP IdTag) from the current session. Bytes 4 to 7.
+        Thing data Reg_722 "User ID" [ readStart="722", readValueType="uint32" ]
+        // User ID (OCPP IdTag) from the current session. Bytes 8 to 11.
+        Thing data Reg_724 "User ID" [ readStart="724", readValueType="uint32" ]
+        // User ID (OCPP IdTag) from the current session. Bytes 12 to 15.
+        Thing data Reg_726 "User ID" [ readStart="726", readValueType="uint32" ]
+        // User ID (OCPP IdTag) from the current session. Bytes 16 to 19.
+        Thing data Reg_728 "User ID" [ readStart="728", readValueType="uint32" ]
+    }
+
+    Bridge poller Poll_740 "Poller 740" [ start=740, length=7, type="holding", refresh=1000 ] {
+        // Returns 1 if an EV currently connected is a smart vehicle, or 0 if no EV connected or it is not a smart vehicle
+        Thing data Reg_740 "15118 Smart vehicle detected" [ readStart="740", readValueType="uint16" ]
+        // ASCII representation of the Hex. Values corresponding to the EVCCID. Bytes 0 to 3.
+        Thing data Reg_741 "EVCCID - 15118 only" [ readStart="741", readValueType="uint32" ]
+        // ASCII representation of the Hex. Values corresponding to the EVCCID. Bytes 4 to 7.
+        Thing data Reg_743 "EVCCID - 15118 only" [ readStart="743", readValueType="uint32" ]
+        // ASCII representation of the Hex. Values corresponding to the EVCCID. Bytes 8 to 11.
+        Thing data Reg_745 "EVCCID - 15118 only" [ readStart="745", readValueType="uint32" ]
+    }
+
+    Bridge poller Poll_1000 "Poller 1000" [ start=1000, length=1, type="holding", refresh=1000 ] {
+        // Current limit of the HEMS module in Amps
+        Thing data Reg_1000 "Hems Current Limit (A)" [ readStart="1000", readValueType="uint16", writeStart="1000", writeValueType="uint16", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+    }
+
+//    Bridge poller Poll_1110 "Poller 1110" [ start=1110, length=10, type="holding", refresh=1000 ] {
+//        //      W       2       Write user ID (OCPP IdTag) for the current session. Bytes 0 to 3.
+//        Thing data Reg_1110 "User ID" [ writeStart="1110", writeValueType="uint32", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+//        //      W       2       Write user ID (OCPP IdTag) for the current session. Bytes 4 to 7.
+//        Thing data Reg_1112 "User ID" [ writeStart="1112", writeValueType="uint32", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+//        //      W       2       Write user ID (OCPP IdTag) for the current session. Bytes 8 to 11.
+//        Thing data Reg_1114 "User ID" [ writeStart="1114", writeValueType="uint32", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+//        //      W       2       Write user ID (OCPP IdTag) for the current session. Bytes 12 to 15.
+//        Thing data Reg_1116 "User ID" [ writeStart="1116", writeValueType="uint32", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+//        //      W       2       Write user ID (OCPP IdTag) for the current session. Bytes 16 to 19.
+//        Thing data Reg_1118 "User ID" [ writeStart="1118", writeValueType="uint32", writeType="holding", writeMultipleEvenWithSingleRegisterOrCoil=true ]
+//    }
+}

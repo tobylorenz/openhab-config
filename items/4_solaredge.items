@@ -1,0 +1,4 @@
+// SolarEdge items via SolarEdge binding
+
+Number:Power SolarEdge_API_Production "SolarEdge - Production" (gSolarEdge) ["Measurement", "Power"] { channel="solaredge:generic:se30k:live#production" }
+String SolarEdge_API_PV_Status "SolarEdge - PV Status" (gSolarEdge) ["Status"] { channel="solaredge:generic:se30k:live#pv_status" }

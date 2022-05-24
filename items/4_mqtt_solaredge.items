@@ -1,0 +1,26 @@
+// SolarEdge SE30K items via MQTT binding
+
+Number:Frequency SolarEdge_MQTT_AC_Frequenz "SolarEdge - AC-Frequenz" (gSolarEdge) ["Measurement", "Frequency"] { channel="mqtt:topic:server:solaredge:ac_frequency" }
+Number:Power SolarEdge_MQTT_AC_Leistung "SolarEdge - AC-Leistung" (gSolarEdge) ["Measurement", "Power"] { channel="mqtt:topic:server:solaredge:ac_power" }
+Number:ElectricPotential SolarEdge_MQTT_AC_Spannung "SolarEdge - AC-Spannung [%.6f V]" (gSolarEdge) ["Measurement", "Voltage"] { channel="mqtt:topic:server:solaredge:ac_voltage" }
+Number:ElectricCurrent SolarEdge_MQTT_AC_Strom "SolarEdge - AC-Strom" (gSolarEdge) ["Measurement", "Current"] { channel="mqtt:topic:server:solaredge:ac_current" }
+Number SolarEdge_MQTT_cos_phi "SolarEdge - cos(φ)" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:cos_phi" }
+Number:Power SolarEdge_MQTT_DC_Leistung "SolarEdge - DC-Leistung" (gSolarEdge) ["Measurement", "Power"] { channel="mqtt:topic:server:solaredge:dc_power" }
+Number:ElectricPotential SolarEdge_MQTT_DC_Spannung "SolarEdge - DC-Spannung" (gSolarEdge) ["Measurement", "Voltage"] { channel="mqtt:topic:server:solaredge:dc_voltage" }
+Number:ElectricCurrent SolarEdge_MQTT_DC_Strom "SolarEdge - DC-Strom" (gSolarEdge) ["Measurement", "Current"] { channel="mqtt:topic:server:solaredge:dc_current" }
+Number:Energy SolarEdge_MQTT_Energie_Monat "SolarEdge - Energie Diesen Monat" <energy> (gSolarEdge) ["Measurement", "Energy"] { channel="mqtt:topic:server:solaredge:energy_this_month" }
+Number:Energy SolarEdge_MQTT_Energie_Jahr "SolarEdge - Energie Dieses Jahr" <energy> (gSolarEdge) ["Measurement", "Energy"] { channel="mqtt:topic:server:solaredge:energy_this_year" }
+Number:Energy SolarEdge_MQTT_Energie_Gesamt "SolarEdge - Energie Gesamt" <energy> (gSolarEdge) ["Measurement", "Energy"] { channel="mqtt:topic:server:solaredge:energy_total" }
+Number:Energy SolarEdge_MQTT_Energie_Tag "SolarEdge - Energie Heute" <energy> (gSolarEdge) ["Measurement", "Energy"] { channel="mqtt:topic:server:solaredge:energy_today" }
+Number SolarEdge_MQTT_Isolation_Alpha "SolarEdge - Isolierung Alpha [%.2f %%]" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:isolation_alpha" }
+Number SolarEdge_MQTT_Isolation_Fehlerposition "SolarEdge - Isolierung Fehlerposition" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:isolation_fault_location" }
+Number:ElectricResistance SolarEdge_MQTT_Isolation_Widerstand "SolarEdge - Isolierung Widerstand" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:isolation_r_iso" }
+Number:Power SolarEdge_MQTT_Limit "SolarEdge - Limit" (gSolarEdge) ["Measurement", "Power"] { channel="mqtt:topic:server:solaredge:limit" }
+String SolarEdge_MQTT_Luefter "SolarEdge - Lüfter" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:fan" }
+Number SolarEdge_MQTT_Optimierer_Aktiv "SolarEdge - Optimierer Aktiv" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:optimizers_enabled" }
+Number SolarEdge_MQTT_Optimierer_Verbunden "SolarEdge - Optimierer Verbunden" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:optimizers_connected" }
+Number SolarEdge_MQTT_Q "SolarEdge - Q(U)" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:q" }
+String SolarEdge_MQTT_S_Ok "SolarEdge - s_ok" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:s_ok" }
+String SolarEdge_MQTT_Schalter_Status "SolarEdge - Schalter Status" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:switch_status" }
+String SolarEdge_MQTT_Status "SolarEdge - Status" (gSolarEdge) ["Measurement"] { channel="mqtt:topic:server:solaredge:status" }
+Number:Temperature SolarEdge_MQTT_Temperatur "SolarEdge - Temperatur" <temperature> (gSolarEdge) ["Measurement", "Temperature"] { channel="mqtt:topic:server:solaredge:temperature" }

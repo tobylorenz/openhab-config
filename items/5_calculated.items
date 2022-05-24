@@ -1,0 +1,22 @@
+// Virtual items calculated on others
+
+// Eigenverbrauch
+Number:Power Gesamtverbrauch_Leistung "Gesamtverbrauch - Leistung [%.1f W]" (gElektro) ["Measurement", "Power"]
+Number:Power PV_Eigenverbrauch_Leistung "PV Eigenverbrauch - Leistung [%.1f W]" (gElektro) ["Measurement", "Power"]
+Number:Power PV_Ueberschuss_Leistung "PV Überschuss - Leistung [%.1f W]" (gElektro) ["Measurement", "Power"]
+Number:Power Restverbrauch_Leistung "Restverbrauch - Leistung [%.1f W]" (gElektro) ["Measurement", "Power"]
+
+// PV Leistung nach Sonnenstand
+Number:Power PV_Leistung_Sonnenstand_Nord "PV - Leistung nach Sonnenstand - Nordseite [%.1f W]" (gSolarEdge) ["Power"]
+Number:Power PV_Leistung_Sonnenstand_Ost "PV - Leistung nach Sonnenstand - Ostseite [%.1f W]" (gSolarEdge) ["Power"]
+Number:Power PV_Leistung_Sonnenstand_Sued "PV - Leistung nach Sonnenstand - Südseite [%.1f W]" (gSolarEdge) ["Power"]
+Number:Power PV_Leistung_Sonnenstand_West "PV - Leistung nach Sonnenstand - Westseite [%.1f W]" (gSolarEdge) ["Power"]
+Number:Power PV_Leistung_Sonnenstand "PV - Leistung nach Sonnenstand [%.1f W]" (gSolarEdge) ["Power"]
+
+// Stromzähler PV als Absolutwert
+Number:Power StromzaehlerPV_Leistung_absolut "eHZ PV - Leistung (absolut) [%.1f W]" (gStromzaehlerPV) ["Measurement", "Power"]
+
+// Strompreise
+Number Strompreis_Netzbezug "Strompreis Netzbezug [%.2f ct/kWh]"
+Number Strompreis_Einspeisung "Strompreis Einspeisug [%.2f ct/kWh]"
+Number Strompreis_gemischt "Strompreis gemischt [%.2f ct/kWh]"

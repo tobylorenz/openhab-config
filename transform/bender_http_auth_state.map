@@ -1,0 +1,6 @@
+NULL=NULL
+
+not_authorized_for_charging=
+wait_for_auth=
+authorized_for_charging=
+auth_timeout=

@@ -1,0 +1,107 @@
+Thing mqtt:topic:server:solaredge "SolarEdge" (mqtt:broker:server) @ "Elektroraum" {
+    Channels:
+        Type number : ac_current "AC-Strom" [
+            stateTopic = "server/solaredge/ac_current",
+            unit = "A"
+        ]
+        Type number : ac_frequency "AC-Frequenz" [
+            stateTopic = "server/solaredge/ac_frequency",
+            min = 47,
+            max = 52,
+            unit = "Hz"
+        ]
+        Type number : ac_power "AC-Leistung" [
+            stateTopic = "server/solaredge/ac_power",
+            min = 0,
+            unit = "W"
+        ]
+        Type number : ac_voltage "AC-Spannung" [
+            stateTopic = "server/solaredge/ac_voltage",
+            min = 0,
+            unit = "V"
+        ]
+        Type number : cos_phi "cos(φ)" [
+            stateTopic = "server/solaredge/cos_phi"
+        ]
+        Type string : s_ok "s_ok" [
+            stateTopic = "server/solaredge/s_ok"
+        ]
+        Type string : status "Status" [
+            stateTopic = "server/solaredge/status"
+        ]
+        Type string : switch_status "Schalter Status" [
+            stateTopic = "server/solaredge/switch_status"
+        ]
+        Type number : dc_current "DC-Strom" [
+            stateTopic = "server/solaredge/dc_current",
+            unit = "A"
+        ]
+        Type number : dc_power "DC-Leistung" [
+            stateTopic = "server/solaredge/dc_power",
+            min = 0,
+            unit = "W"
+        ]
+        Type number : dc_voltage "DC-Spannung" [
+            stateTopic = "server/solaredge/dc_voltage",
+            min = 0,
+            unit = "V"
+        ]
+        Type number : energy_this_month "Energie Diesen Monat" [
+            stateTopic = "server/solaredge/energy_this_month",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type number : energy_this_year "Energie Dieses Jahr" [
+            stateTopic = "server/solaredge/energy_this_year",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type number : energy_today "Energie Heute" [
+            stateTopic = "server/solaredge/energy_today",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type number : energy_total "Energie Gesamt" [
+            stateTopic = "server/solaredge/energy_total",
+            min = 0,
+            unit = "Wh"
+        ]
+        Type string : fan "Lüfter" [
+            stateTopic = "server/solaredge/fan"
+        ]
+        Type number : isolation_alpha "Isolierung Alpha" [
+            stateTopic = "server/solaredge/isolation_alpha",
+            min = 0,
+            unit = "%"
+        ]
+        Type number : isolation_fault_location "Isolierung Fehlerposition" [
+            stateTopic = "server/solaredge/isolation_fault_location",
+            min = 0
+        ]
+        Type number : isolation_r_iso "Isolierung Widerstand" [
+            stateTopic = "server/solaredge/isolation_r_iso",
+            min = 0,
+            unit = "kΩ"
+        ]
+        Type number : limit "Limit" [
+            stateTopic = "server/solaredge/limit",
+            min = 0,
+            unit = "W"
+        ]
+        Type number : optimizers_connected "Optimierer verbunden" [
+            stateTopic = "server/solaredge/optimizers_connected",
+            min = 0
+        ]
+        Type number : optimizers_enabled "Optimierer aktiv" [
+            stateTopic = "server/solaredge/optimizers_enabled",
+            min = 0
+        ]
+        Type number : q "Q(U)" [
+            stateTopic = "server/solaredge/q",
+            unit = "VAR"
+        ]
+        Type number : temperature "Temperatur" [
+            stateTopic = "server/solaredge/temperature",
+            unit = "°C"
+        ]
+}

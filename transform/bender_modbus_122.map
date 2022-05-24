@@ -1,0 +1,7 @@
+NULL=NULL
+
+1=(A) Vehicle not connected
+2=(B) Vehicle connected not ready
+3=(C) Vehicle connected ready
+4=(D) Vehicle connected ready. Ventilation required
+5=(E) Error

@@ -1,0 +1,13 @@
+// Summe aller nicht einzeln gezählten Verbraucher berechnen.
+
+rule "Restverbrauch"
+when
+    Item Gesamtverbrauch_Leistung received update or
+    Item Wallbox1_power_w received update or
+    Item Wallbox2_power_w received update
+then
+    Restverbrauch_Leistung.postUpdate(
+        (Gesamtverbrauch_Leistung.state as Number).floatValue
+        - (Wallbox1_power_w.state as Number).floatValue
+        - (Wallbox2_power_w.state as Number).floatValue)
+end

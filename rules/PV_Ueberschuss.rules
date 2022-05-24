@@ -1,0 +1,23 @@
+// Steuerung von Verbrauchern zur Minimierung der PV-Überschusseinspeisung
+
+rule "PV Überschuss"
+when
+    Item PV_Ueberschuss_Leistung received update or
+    Item Wallbox2_power_w received update
+then
+    val Ueberschuss_Einspeisung_W = (PV_Ueberschuss_Leistung.state as Number).floatValue
+    val Ueberschuss_Verbraucher_W = (Wallbox2_power_w.state as Number).floatValue
+    val Ueberschuss_Gesamt_W = Ueberschuss_Einspeisung_W + Ueberschuss_Verbraucher_W
+
+    // 1. Prio: Wärmepumpe
+
+    // 2. Prio: Wallbox 2
+
+    // 230V x 1 x 16A = 3680W
+    // 230V x 3 x 16A = 11040W
+    // 230V x 3 x 32A = 22080W
+    val Ueberschuss_Gesamt_A = Ueberschuss_Gesamt_W / 230 / 3
+    // Wallbox1_Modbus_1000.sendCommand(Math::min(Math::floor(Ueberschuss_Gesamt_A), 16))
+    // >16 A let to error "Aborting. Error was: net.wimpi.modbus.ModbusSlaveException Error Code = 3 [operation ID 4515372d-d0ba-447a-b66d-185d9944f886]"
+    Wallbox2_Modbus_1000.sendCommand(Math::min(Math::floor(Ueberschuss_Gesamt_A), 16))
+end

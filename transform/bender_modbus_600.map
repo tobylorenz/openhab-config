@@ -1,0 +1,7 @@
+NULL=NULL
+
+0=Disabled
+1=DLM Master (With internal DLM-Slave)
+2=DLM Master (Standalone)
+3=DLM Slave (Master-Auto-Discovery)
+4=DLM Slave (Master-Fixed-IP)

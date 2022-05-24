@@ -1,0 +1,125 @@
+// SolarEdge SE30K items via Modbus TCP binding
+
+// Device Information
+Number:Temperature SE30K_Modbus_DeviceInfo_Cabinet_Temperature "SolarEdge - Cabinet Temperature [%.1f C]" <temperature> (gSolarEdge) ["Measurement", "Temperature"] { channel="modbus:inverter-three-phase:bridge:se30k:deviceInformation#cabinet-temperature" }
+Number:Temperature SE30K_Modbus_DeviceInfo_Heatsink_Temperature "SolarEdge - Heat Sink Temperature [%.1f C]" <temperature> (gSolarEdge) ["Measurement", "Temperature"] { channel="modbus:inverter-three-phase:bridge:se30k:deviceInformation#heatsink-temperature" }
+Number:Temperature SE30K_Modbus_DeviceInfo_Transformer_Temperature "SolarEdge - Transformer Temperature [%.1f C]" <temperature> (gSolarEdge) ["Measurement", "Temperature"] { channel="modbus:inverter-three-phase:bridge:se30k:deviceInformation#transformer-temperature" }
+Number:Temperature SE30K_Modbus_DeviceInfo_Other_Temperature "SolarEdge - Other Temperature [%.1f C]" <temperature> (gSolarEdge) ["Measurement", "Temperature"] { channel="modbus:inverter-three-phase:bridge:se30k:deviceInformation#other-temperature" }
+String SE30K_Modbus_DeviceInfo_Status "SolarEdge - Status" (gSolarEdge) ["Status"] { channel="modbus:inverter-three-phase:bridge:se30k:deviceInformation#status" }
+
+// AC Summary
+Number:ElectricCurrent SE30K_Modbus_ACGeneral_AC_Total_Current "SolarEdge - AC Total Current Value [%.1f A]" (gSolarEdge) ["Measurement", "Current"] { channel="modbus:inverter-three-phase:bridge:se30k:acGeneral#ac-total-current" }
+Number:Power SE30K_Modbus_ACGeneral_AC_Power "SolarEdge - AC Power Value [%d W]" (gSolarEdge) ["Measurement", "Power"] { channel="modbus:inverter-three-phase:bridge:se30k:acGeneral#ac-power" }
+Number:Frequency SE30K_Modbus_ACGeneral_AC_Frequency "SolarEdge - AC Frequency Value [%.1f Hz]" (gSolarEdge) ["Measurement", "Frequency"] { channel="modbus:inverter-three-phase:bridge:se30k:acGeneral#ac-frequency" }
+Number:Dimensionless SE30K_Modbus_ACGeneral_AC_Power_Factor "SolarEdge - AC Power Factor [%.1f %%]" (gSolarEdge) ["Measurement"] { channel="modbus:inverter-three-phase:bridge:se30k:acGeneral#ac-power-factor" }
+Number:Energy SE30K_Modbus_ACGeneral_AC_Lifetime_Energy "SolarEdge - AC Lifetime Energy Production [%d Wh]" <energy> (gSolarEdge) ["Measurement", "Energy"] { channel="modbus:inverter-three-phase:bridge:se30k:acGeneral#ac-lifetime-energy" }
+
+// AC Phase A (L1)
+Number:ElectricCurrent SE30K_Modbus_ACPhaseA_AC_Phase_Current "SolarEdge - AC Phase Current Value A [%.1f A]" (gSolarEdge) ["Measurement", "Current"] { channel="modbus:inverter-three-phase:bridge:se30k:acPhaseA#ac-phase-current" }
+Number:ElectricPotential SE30K_Modbus_ACPhaseA_AC_Voltage_To_Next "SolarEdge - AC Voltage A [%.1f V]" (gSolarEdge) ["Measurement", "Voltage"] { channel="modbus:inverter-three-phase:bridge:se30k:acPhaseA#ac-voltage-to-next" }
+Number:ElectricPotential SE30K_Modbus_ACPhaseA_AC_Voltage_To_N "SolarEdge - AC Voltage Phase to N Value A [%.1f V]" (gSolarEdge) ["Measurement", "Voltage"] { channel="modbus:inverter-three-phase:bridge:se30k:acPhaseA#ac-voltage-to-n" }
+
+// AC Phase B (L2)
+Number:ElectricCurrent SE30K_Modbus_ACPhaseB_AC_Phase_Current "SolarEdge - AC Phase Current Value B [%.1f A]" (gSolarEdge) ["Measurement", "Current"] { channel="modbus:inverter-three-phase:bridge:se30k:acPhaseB#ac-phase-current" }
+Number:ElectricPotential SE30K_Modbus_ACPhaseB_AC_Voltage_To_Next "SolarEdge - AC Voltage B [%.1f V]" (gSolarEdge) ["Measurement", "Voltage"] { channel="modbus:inverter-three-phase:bridge:se30k:acPhaseB#ac-voltage-to-next" }
+Number:ElectricPotential SE30K_Modbus_ACPhaseB_AC_Voltage_To_N "SolarEdge - AC Voltage Phase to N Value B [%.1f V]" (gSolarEdge) ["Measurement", "Voltage"] { channel="modbus:inverter-three-phase:bridge:se30k:acPhaseB#ac-voltage-to-n" }
+
+// AC Phase C (L3)
+Number:ElectricCurrent SE30K_Modbus_ACPhaseC_AC_Phase_Current "SolarEdge - AC Phase Current Value C [%.1f A]" (gSolarEdge) ["Measurement", "Current"] { channel="modbus:inverter-three-phase:bridge:se30k:acPhaseC#ac-phase-current" }
+Number:ElectricPotential SE30K_Modbus_ACPhaseC_AC_Voltage_To_Next "SolarEdge - AC Voltage C [%.1f V]" (gSolarEdge) ["Measurement", "Voltage"] { channel="modbus:inverter-three-phase:bridge:se30k:acPhaseC#ac-voltage-to-next" }
+Number:ElectricPotential SE30K_Modbus_ACPhaseC_AC_Voltage_To_N "SolarEdge - AC Voltage Phase to N Value C [%.1f V]" (gSolarEdge) ["Measurement", "Voltage"] { channel="modbus:inverter-three-phase:bridge:se30k:acPhaseC#ac-voltage-to-n" }
+
+// DC Summary
+Number:ElectricCurrent SE30K_Modbus_DCGeneral_DC_Current_Value "SolarEdge - DC Current Value [%.1f A]" (gSolarEdge) ["Measurement", "Current"] { channel="modbus:inverter-three-phase:bridge:se30k:dcGeneral#dc-current" }
+Number:ElectricPotential SE30K_Modbus_DCGeneral_DC_Voltage_Value "SolarEdge - DC Voltage Value [%.1f V]" (gSolarEdge) ["Measurement", "Voltage"] { channel="modbus:inverter-three-phase:bridge:se30k:dcGeneral#dc-voltage" }
+Number:Power SE30K_Modbus_DCGeneral_DC_Power_Value "SolarEdge - DC Power Value [%d W]" (gSolarEdge) ["Measurement", "Power"] { channel="modbus:inverter-three-phase:bridge:se30k:dcGeneral#dc-power" }
+
+//// Common Model MODBUS Register Mappings
+//Number SE30K_modbus_C_SunSpec_ID "SolarEdge - C_SunSpec_ID" (gSolarEdge) { channel="modbus:data:se30k:common:C_SunSpec_ID:number" }
+//Number SE30K_modbus_C_SunSpec_DID_1 "SolarEdge - C_SunSpec_DID" (gSolarEdge) { channel="modbus:data:se30k:common:C_SunSpec_DID_1:number" }
+//Number SE30K_modbus_C_SunSpec_Length_1 "SolarEdge - C_SunSpec_Length" (gSolarEdge) { channel="modbus:data:se30k:common:C_SunSpec_Length_1:number" }
+//// C_Manufacturer
+//// C_Model
+//// ???
+//// C_Version
+//// C_SerialNumber
+//Number SE30K_modbus_C_DeviceAddress "SolarEdge - C_DeviceAddress" (gSolarEdge) { channel="modbus:data:se30k:common:C_DeviceAddress:number" }
+//
+//// Inverter Model MODBUS Register Mappings
+//Number SE30K_modbus_C_SunSpec_DID_2 "SolarEdge - C_SunSpec_DID" (gSolarEdge) { channel="modbus:data:se30k:inverter:C_SunSpec_DID_2:number" }
+//Number SE30K_modbus_C_SunSpec_Length_2 "SolarEdge - C_SunSpec_Length" (gSolarEdge) { channel="modbus:data:se30k:inverter:C_SunSpec_Length_2:number" }
+//Number:ElectricCurrent SE30K_modbus_I_AC_Current "SolarEdge - I_AC_Current [%d A]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_Current:number" }
+//Number:ElectricCurrent SE30K_modbus_I_AC_CurrentA "SolarEdge - I_AC_CurrentA [%d A]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_CurrentA:number" }
+//Number:ElectricCurrent SE30K_modbus_I_AC_CurrentB "SolarEdge - I_AC_CurrentB [%d A]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_CurrentB:number" }
+//Number:ElectricCurrent SE30K_modbus_I_AC_CurrentC "SolarEdge - I_AC_CurrentC [%d A]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_CurrentC:number" }
+//Number SE30K_modbus_I_AC_Current_SF "SolarEdge - I_AC_Current_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_Current_SF:number" }
+//Number:ElectricPotential SE30K_modbus_I_AC_VoltageAB "SolarEdge - I_AC_VoltageAB [%d V]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VoltageAB:number" }
+//Number:ElectricPotential SE30K_modbus_I_AC_VoltageBC "SolarEdge - I_AC_VoltageBC [%d V]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VoltageBC:number" }
+//Number:ElectricPotential SE30K_modbus_I_AC_VoltageCA "SolarEdge - I_AC_VoltageCA [%d V]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VoltageCA:number" }
+//Number:ElectricPotential SE30K_modbus_I_AC_VoltageAN "SolarEdge - I_AC_VoltageAN [%d V]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VoltageAN:number" }
+//Number:ElectricPotential SE30K_modbus_I_AC_VoltageBN "SolarEdge - I_AC_VoltageBN [%d V]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VoltageBN:number" }
+//Number:ElectricPotential SE30K_modbus_I_AC_VoltageCN "SolarEdge - I_AC_VoltageCN [%d V]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VoltageCN:number" }
+//Number SE30K_modbus_I_AC_Voltage_SF "SolarEdge - I_AC_Voltage_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_Voltage_SF:number" }
+//Number:Power SE30K_modbus_I_AC_Power "SolarEdge - I_AC_Power [%d W]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_Power:number" }
+//Number SE30K_modbus_I_AC_Power_SF "SolarEdge - I_AC_Power_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_Power_SF:number" }
+//Number:Frequency SE30K_modbus_I_AC_Frequency "SolarEdge - I_AC_Frequency [%d Hz]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_Frequency:number" }
+//Number SE30K_modbus_I_AC_Frequency_SF "SolarEdge - I_AC_Frequency_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_Frequency_SF:number" }
+//Number:Power SE30K_modbus_I_AC_VA "SolarEdge - I_AC_VA [%d VA]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VA:number" }
+//Number SE30K_modbus_I_AC_VA_SF "SolarEdge - I_AC_VA_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VA_SF:number" }
+//Number:Power SE30K_modbus_I_AC_VAR "SolarEdge - I_AC_VAR [%d VAR]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VAR:number" }
+//Number SE30K_modbus_I_AC_VAR_SF "SolarEdge - I_AC_VAR_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_VAR_SF:number" }
+//Number:Dimensionless SE30K_modbus_I_AC_PF "SolarEdge - I_AC_PF [%d %%]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_PF:number" }
+//Number SE30K_modbus_I_AC_PF_SF "SolarEdge - I_AC_PF_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_PF_SF:number" }
+////Number:Energy SE30K_modbus_I_AC_Energy_WH "SolarEdge - I_AC_Energy_WH [%d Wh]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_Energy_WH:number" }
+//Number SE30K_modbus_I_AC_Energy_WH_SF "SolarEdge - I_AC_Energy_WH_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_AC_Energy_WH_SF:number" }
+//Number:ElectricCurrent SE30K_modbus_I_DC_Current "SolarEdge - I_DC_Current [%d A]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_DC_Current:number" }
+//Number SE30K_modbus_I_DC_Current_SF "SolarEdge - I_DC_Current_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_DC_Current_SF:number" }
+//Number:ElectricPotential SE30K_modbus_I_DC_Voltage "SolarEdge - I_DC_Voltage [%d V]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_DC_Voltage:number" }
+//Number SE30K_modbus_I_DC_Voltage_SF "SolarEdge - I_DC_Voltage_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_DC_Voltage_SF:number" }
+//Number:Power SE30K_modbus_I_DC_Power "SolarEdge - I_DC_Power [%d W]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_DC_Power:number" }
+//Number SE30K_modbus_I_DC_Power_SF "SolarEdge - I_DC_Power_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_DC_Power_SF:number" }
+//Number:Temperature SE30K_modbus_I_Temp_Sink "SolarEdge - I_Temp_Sink [%d °C]" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_Temp_Sink:number" }
+//Number SE30K_modbus_I_Temp_SF "SolarEdge - I_Temp_SF" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_Temp_SF:number" }
+//Number SE30K_modbus_I_Status "SolarEdge - I_Status" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_Status:number" }
+//Number SE30K_modbus_I_Status_Vendor "SolarEdge - I_Status_Vendor" (gSolarEdge) { channel="modbus:data:se30k:inverter:I_Status_Vendor:number" }
+//
+//// Multiple MPPT Inverter Extension Model
+//Number SE3K_modbus_MPPT_Header_ID "SolarEdge - MPPT_Header_ID" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Header_ID:number" }
+//Number SE3K_modbus_MPPT_Header_L "SolarEdge - MPPT_Header_L" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Header_L:number" }
+//// Number SE3K_modbus_MPPT_Fixed_Block_DCA_SF "SolarEdge - MPPT_Fixed_Block_DCA_SF" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Fixed_Block_DCA_SF:number" }
+//// Number SE3K_modbus_MPPT_Fixed_Block_DCV_SF "SolarEdge - MPPT_Fixed_Block_DCV_SF" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Fixed_Block_DCV_SF:number" }
+//// Number SE3K_modbus_MPPT_Fixed_Block_DCW_SF "SolarEdge - MPPT_Fixed_Block_DCW_SF" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Fixed_Block_DCW_SF:number" }
+//// Number SE3K_modbus_MPPT_Fixed_Block_DCWH_SF "SolarEdge - MPPT_Fixed_Block_DCWH_SF" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Fixed_Block_DCWH_SF:number" }
+//// Number SE3K_modbus_MPPT_Fixed_Block_Evt "SolarEdge - MPPT_Fixed_Block_Evt" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Fixed_Block_Evt:number" }
+//// Number SE3K_modbus_MPPT_Fixed_Block_N "SolarEdge - MPPT_Fixed_Block_N" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Fixed_Block_N:number" }
+//Number SE3K_modbus_MPPT_Fixed_Block_TmsPer "SolarEdge - MPPT_Fixed_Block_TmsPer" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Fixed_Block_TmsPer:number" }
+//Number SE3K_modbus_MPPT_Synergy_Unit_0_Block_ID "SolarEdge - MPPT_Synergy_Unit_0_Block_ID" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_ID:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_0_Block_IDStr "SolarEdge - MPPT_Synergy_Unit_0_Block_IDStr" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_IDStr:number" }
+//Number:ElectricCurrent SE3K_modbus_MPPT_Synergy_Unit_0_Block_DCA "SolarEdge - MPPT_Synergy_Unit_0_Block_DCA [%d A]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_DCA:number" }
+//Number:ElectricPotential SE3K_modbus_MPPT_Synergy_Unit_0_Block_DCV "SolarEdge - MPPT_Synergy_Unit_0_Block_DCV [%d V]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_DCV:number" }
+//Number:Power SE3K_modbus_MPPT_Synergy_Unit_0_Block_DCW "SolarEdge - MPPT_Synergy_Unit_0_Block_DCW [%d W]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_DCW:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_0_Block_DCWH "SolarEdge - MPPT_Synergy_Unit_0_Block_DCWH [%d Wh]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_DCWH:number" }
+//Number SE3K_modbus_MPPT_Synergy_Unit_0_Block_Tms "SolarEdge - MPPT_Synergy_Unit_0_Block_Tms" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_Tms:number" }
+//Number:Temperature SE3K_modbus_MPPT_Synergy_Unit_0_Block_Tmp "SolarEdge - MPPT_Synergy_Unit_0_Block_Tmp [%d °C]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_Tmp:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_0_Block_DCSt "SolarEdge - MPPT_Synergy_Unit_0_Block_DCSt" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_DCSt:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_0_Block_DCEvt "SolarEdge - MPPT_Synergy_Unit_0_Block_DCEvt" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_0_Block_DCEvt:number" }
+//Number SE3K_modbus_MPPT_Synergy_Unit_1_Block_ID "SolarEdge - MPPT_Synergy_Unit_1_Block_ID" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_ID:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_1_Block_IDStr "SolarEdge - MPPT_Synergy_Unit_1_Block_IDStr" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_IDStr:number" }
+//Number:ElectricCurrent SE3K_modbus_MPPT_Synergy_Unit_1_Block_DCA "SolarEdge - MPPT_Synergy_Unit_1_Block_DCA [%d A]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_DCA:number" }
+//Number:ElectricPotential SE3K_modbus_MPPT_Synergy_Unit_1_Block_DCV "SolarEdge - MPPT_Synergy_Unit_1_Block_DCV [%d V]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_DCV:number" }
+//Number:Power SE3K_modbus_MPPT_Synergy_Unit_1_Block_DCW "SolarEdge - MPPT_Synergy_Unit_1_Block_DCW [%d W]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_DCW:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_1_Block_DCWH "SolarEdge - MPPT_Synergy_Unit_1_Block_DCWH [%d Wh]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_DCWH:number" }
+//Number SE3K_modbus_MPPT_Synergy_Unit_1_Block_Tms "SolarEdge - MPPT_Synergy_Unit_1_Block_Tms" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_Tms:number" }
+//Number:Temperature SE3K_modbus_MPPT_Synergy_Unit_1_Block_Tmp "SolarEdge - MPPT_Synergy_Unit_1_Block_Tmp [%d °C]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_Tmp:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_1_Block_DCSt "SolarEdge - MPPT_Synergy_Unit_1_Block_DCSt" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_DCSt:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_1_Block_DCEvt "SolarEdge - MPPT_Synergy_Unit_1_Block_DCEvt" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_1_Block_DCEvt:number" }
+//Number SE3K_modbus_MPPT_Synergy_Unit_2_Block_ID "SolarEdge - MPPT_Synergy_Unit_2_Block_ID" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_ID:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_2_Block_IDStr "SolarEdge - MPPT_Synergy_Unit_2_Block_IDStr" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_IDStr:number" }
+//Number:ElectricCurrent SE3K_modbus_MPPT_Synergy_Unit_2_Block_DCA "SolarEdge - MPPT_Synergy_Unit_2_Block_DCA [%d A]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_DCA:number" }
+//Number:ElectricPotential SE3K_modbus_MPPT_Synergy_Unit_2_Block_DCV "SolarEdge - MPPT_Synergy_Unit_2_Block_DCV [%d V]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_DCV:number" }
+//Number:Power SE3K_modbus_MPPT_Synergy_Unit_2_Block_DCW "SolarEdge - MPPT_Synergy_Unit_2_Block_DCW [%d W]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_DCW:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_2_Block_DCWH "SolarEdge - MPPT_Synergy_Unit_2_Block_DCWH [%d Wh]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_DCWH:number" }
+//Number SE3K_modbus_MPPT_Synergy_Unit_2_Block_Tms "SolarEdge - MPPT_Synergy_Unit_2_Block_Tms" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_Tms:number" }
+//Number:Temperature SE3K_modbus_MPPT_Synergy_Unit_2_Block_Tmp "SolarEdge - MPPT_Synergy_Unit_2_Block_Tmp [%d °C]" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_Tmp:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_2_Block_DCSt "SolarEdge - MPPT_Synergy_Unit_2_Block_DCSt" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_DCSt:number" }
+//// Number SE3K_modbus_MPPT_Synergy_Unit_2_Block_DCEvt "SolarEdge - MPPT_Synergy_Unit_2_Block_DCEvt" (gSolarEdge) { channel="modbus:data:se30k:multiple_mppt:MPPT_Synergy_Unit_2_Block_DCEvt:number" }

@@ -1,0 +1,52 @@
+# http://bender/legacy/doc/doc_1 for RestAPI
+# http://bender/legacy/doc/doc_3 for values and names
+NULL=NULL
+
+ehz_meter_rs232=eHZ Meter via RS232
+s0_meter_opto_1=S0 Meter Opto 1
+s0_meter_opto_2=S0 Meter Opto 2
+no_meter=Simulated Meter
+s0_meter_dedicated_input=S0 Meter Dedicated Input
+internal_meter=Internal Meter
+modbus_meter_abb=Modbus Meter ABB
+modbus_meter_eastron_sdm630=Modbus Meter Eastron SDM630
+modbus_meter_eastron_sdm120_220=Modbus Eastron SDM120_220
+modbus_meter_garo_gnm3d=Modbus Meter Garo GNM3D
+modbus_meter_garo_gnm1d=Modbus Meter Garo GNM1D
+modbus_meter_garo_gm3t=Modbus Meter Garo GM3T
+modbus_meter_garo_EM270=Modbus Meter Garo EM270
+modbus_meter_finder=Modbus Meter Finder
+modbus_meter_saia_ale3=Modbus Saia ALE3
+modbus_meter_inepro_pro1_2=Modbus Inepro PRO1_2
+modbus_meter_inepro_pro380=Modbus Inepro PRO380
+modbus_meter_optec=Modbus Optec
+modbus_meter_nzr=Modbus Meter NZR EcoCount S85
+modbus_meter_tq_em300lr=Modbus TQ EM300-LR
+modbus_meter_carlo_gavazzi_em200=Modbus Meter Carlo Gavazzi EM200
+modbus_meter_carlo_gavazzi_em340=Modbus Meter Carlo Gavazzi EM340
+modbus_meter_garo_gnm3t=Modbus Meter Garo GNM3T
+modbus_meter_ime_ce4dmid31=Modbus IME CE4DMID31
+modbus_meter_siemens7kt1666=Modbus Siemens 7KT1666
+modbus_meter_tq_em300lr_tcp=Modbus TQ EM300-LR (TCP)
+modbus_meter_siemens7km2200_tcp=Modbus Siemens 7KM2200 (TCP)
+modbus_meter_hager_ecr380d=Modbus Hager ECR380D
+modbus_meter_garo_gnm3td=Modbus Meter Garo GNM3TD
+modbus_meter_carlo_gavazzi_em210=Modbus Meter Carlo Gavazzi EM210
+modbus_meter_phoenixcontact_eem_mb371_tcp=Modbus Phoenix Contact EEM-MB371 (TCP)
+modbus_meter_schneider_iem3555=Modbus Schneider iEM3555
+modbus_meter_ecs_m3pro=Modbus ECS M3PRO
+modbus_meter_janitza_umg_512_pro=Modbus Janitza UMG 512/96 PRO
+modbus_meter_janitza_umg_512_pro_tcp=Modbus Janitza UMG 512/96 PRO (TCP)
+modbus_meter_janitza_umg_605_pro=Modbus Janitza UMG 605 PRO
+modbus_meter_janitza_umg_605_pro_tcp=Modbus Janitza UMG 605 PRO (TCP)
+modbus_meter_gossen_metrawatt_em2289=Modbus Gossen Metrawatt EM2289
+modbus_meter_eastron_sdm72d=Modbus Eastron SDM72D
+modbus_meter_iskra_wm3m6=Modbus Iskra WM3M6
+modbus_meter_tq_em410420=Modbus TQ EM410/EM420
+modbus_meter_tq_em410420_tcp=Modbus TQ EM410/EM420 (TCP)
+ehz_meter_usb=eHZ Meter via USB
+wimod_ir_usb_stick=WiMOD IR Reader USB stick
+
+# Obsolete
+modbus_meter_bcontrol_em300lr=Modbus B-Control EM300-LR
+modbus_meter_bcontrol_em300lr_tcp=Modbus B-Control EM300-LR (TCP)

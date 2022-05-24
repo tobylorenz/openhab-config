@@ -1,0 +1,8 @@
+NULL=NULL
+
+no_vehicle_connected=STANDBY
+vehicle_connected_schuko=CONNECTED
+vehicle_charging_schuko=CHARGING
+vehicle_connected_type2=CONNECTED
+vehicle_charging_type2=CHARGING
+vehicle_connector_error=ERROR

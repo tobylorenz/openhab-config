@@ -1,0 +1,11 @@
+NULL=NULL
+
+1=Available
+2=Preparing
+3=Charging
+4=SuspendedEVSE
+5=SuspendedEV
+6=Finishing
+7=Reserved
+8=Unavailable
+9=Faulted

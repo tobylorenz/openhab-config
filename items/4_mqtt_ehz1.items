@@ -1,0 +1,9 @@
+// eHZ items via MQTT binding
+
+Number:Energy StromzaehlerPV_Bezug_Gesamt "eHZ PV - Bezug Gesamt [%.1f Wh]" <energy> (gStromzaehlerPV) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz1:Bezug_Gesamt" }
+Number:Energy StromzaehlerPV_Bezug_HT "eHZ PV - Bezug HT [%.1f Wh]" <energy> (gStromzaehlerPV) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz1:Bezug_HT" }
+Number:Energy StromzaehlerPV_Bezug_NT "eHZ PV - Bezug NT [%.1f Wh]" <energy> (gStromzaehlerPV) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz1:Bezug_NT" }
+Number:Energy StromzaehlerPV_Einspeisung_Gesamt "eHZ PV - Einspeisung Gesamt [%.1f Wh]" <energy> (gStromzaehlerPV) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz1:Einspeisung_Gesamt" }
+Number:Energy StromzaehlerPV_Einspeisung_HT "eHZ PV - Einspeisung HT [%.1f Wh]" <energy> (gStromzaehlerPV) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz1:Einspeisung_HT" }
+Number:Energy StromzaehlerPV_Einspeisung_NT "eHZ PV - Einspeisung NT [%.1f Wh]" <energy> (gStromzaehlerPV) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz1:Einspeisung_NT" }
+Number:Power StromzaehlerPV_Leistung "eHZ PV - Leistung [%.1f W]" (gStromzaehlerPV) ["Measurement", "Power"] { channel="mqtt:topic:server:ehz1:Leistung" }

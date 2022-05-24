@@ -1,0 +1,9 @@
+// eHZ items via MQTT binding
+
+Number:Energy StromzaehlerNetz_Bezug_Gesamt "eHZ Netz - Bezug Gesamt [%.1f Wh]" <energy> (gStromzaehlerNetz) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz0:Bezug_Gesamt" }
+Number:Energy StromzaehlerNetz_Bezug_HT "eHZ Netz - Bezug HT [%.1f Wh]" <energy> (gStromzaehlerNetz) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz0:Bezug_HT" }
+Number:Energy StromzaehlerNetz_Bezug_NT "eHZ Netz - Bezug NT [%.1f Wh]" <energy> (gStromzaehlerNetz) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz0:Bezug_NT" }
+Number:Energy StromzaehlerNetz_Einspeisung_Gesamt "eHZ Netz - Einspeisung Gesamt [%.1f Wh]" <energy> (gStromzaehlerNetz) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz0:Einspeisung_Gesamt" }
+Number:Energy StromzaehlerNetz_Einspeisung_HT "eHZ Netz - Einspeisung HT [%.1f Wh]" <energy> (gStromzaehlerNetz) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz0:Einspeisung_HT" }
+Number:Energy StromzaehlerNetz_Einspeisung_NT "eHZ Netz - Einspeisung NT [%.1f Wh]" <energy> (gStromzaehlerNetz) ["Measurement", "Energy"] { channel="mqtt:topic:server:ehz0:Einspeisung_NT" }
+Number:Power StromzaehlerNetz_Leistung "eHZ Netz - Leistung [%.1f W]" (gStromzaehlerNetz) ["Measurement", "Power"] { channel="mqtt:topic:server:ehz0:Leistung" }

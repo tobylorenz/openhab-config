@@ -1,0 +1,33 @@
+// Splitten der empfangenen Daten vom Mähroboter
+
+rule "Landroid combine gps lat lon"
+when
+    Item Landroid_CommandOut_dat_modules_4G_gps_coo_lat received update or
+    Item Landroid_CommandOut_dat_modules_4G_gps_coo_lon received update
+then
+    val lat = (Landroid_CommandOut_dat_modules_4G_gps_coo_lat.state as Number).floatValue
+    val lon = (Landroid_CommandOut_dat_modules_4G_gps_coo_lon.state as Number).floatValue
+    Landroid_CommandOut_dat_modules_4G_gps_coo.postUpdate(lat + "," + lon)
+end
+
+rule "Landroid combine geo lat lon"
+when
+    Item Landroid_CommandOut_cfg_modules_4G_geo_coo_lat received update or
+    Item Landroid_CommandOut_cfg_modules_4G_geo_coo_lon received update
+then
+    val lat = (Landroid_CommandOut_cfg_modules_4G_geo_coo_lat.state as Number).floatValue
+    val lon = (Landroid_CommandOut_cfg_modules_4G_geo_coo_lon.state as Number).floatValue
+    Landroid_CommandOut_cfg_modules_4G_geo_coo.postUpdate(lat + "," + lon)
+end
+
+rule "Landroid combine date time"
+when
+    Item Landroid_CommandOut_cfg_dt received update or
+    Item Landroid_CommandOut_cfg_tm received update
+then
+    var String year = (Landroid_CommandOut_cfg_dt.state).toString.split('/').get(2)
+    var String month = (Landroid_CommandOut_cfg_dt.state).toString.split('/').get(1)
+    var String day = (Landroid_CommandOut_cfg_dt.state).toString.split('/').get(0)
+    var String time = (Landroid_CommandOut_cfg_tm.state).toString
+    Landroid_CommandOut_cfg_dt_tm_combined.postUpdate(year + "-" + month + "-" + day + "T" + time)
+end

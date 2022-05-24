@@ -1,0 +1,269 @@
+// Worx Landroid L1000 (WR147.1) items via MQTT binding
+
+String Landroid_CommandOut "Landroid - Command Out" <text> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" }
+//String Landroid_CommandIn "Landroid - Command In" <text> (gLandroid) ["Control"] { channel="mqtt:topic:landroid:command:in" }
+
+// cfg.id
+Number Landroid_CommandOut_cfg_id "Landroid - Id" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.id"] }
+
+// cfg.lg
+String Landroid_CommandOut_cfg_lg "Landroid - Sprache" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.lg"] }
+
+// cfg.tm
+String Landroid_CommandOut_cfg_tm "Landroid - Letzte Aktualisierung - Zeit" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.tm"] }
+
+// cfg.dt
+String Landroid_CommandOut_cfg_dt "Landroid - Letzte Aktualisierung - Datum" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.dt"] }
+
+DateTime Landroid_CommandOut_cfg_dt_tm_combined "Landroid - Letzte Aktualisierung" (gLandroid) ["Status"]
+
+// cfg.sc.m
+Switch Landroid_CommandOut_cfg_sc_m "Landroid - Einmaliger Zeitplan - Party-Modus" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.m"] }
+String Landroid_CommandOut_cfg_sc_m_txt "Landroid - Einmaliger Zeitplan - Party-Modus [MAP(landroid_cfg_sc_m.map):%s]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.m"] }
+
+// cfg.sc.distm
+Number:Time Landroid_CommandOut_cfg_sc_distm "Landroid - Einmaliger Zeitplan - Party-Modus - Zeitliche Begrenzung [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.distm"] }
+
+// cfg.sc.ots.bc
+Switch Landroid_CommandOut_cfg_sc_ots_bc "Landroid - Einmaliger Zeitplan - Rasenkanten-Schnitt" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.ots.bc"] }
+
+// cfg.sc.ots.wtm
+Number:Time Landroid_CommandOut_cfg_sc_ots_wtm "Landroid - Einmaliger Zeitplan - Arbeitszeit [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.ots.wtm"] }
+
+// cfg.sc.p
+Number:Dimensionless Landroid_CommandOut_cfg_sc_p "Landroid - Manueller Zeitplan - Erhöhen/Verringern der täglichen Arbeitszeit [%d %%]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.p"], stateDescription="" [min="-100", max="100", step="10"] }
+
+// cfg.sc.d
+String Landroid_CommandOut_cfg_sc_d_0_start "Landroid - Manueller Zeitplan - 1. Fahrt - Sonntag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[0][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_d_0_duration "Landroid - Manueller Zeitplan - 1. Fahrt - Sonntag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[0][1]"] }
+Switch Landroid_CommandOut_cfg_sc_d_0_bc "Landroid - Manueller Zeitplan - 1. Fahrt - Sonntag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[0][2]"] }
+String Landroid_CommandOut_cfg_sc_d_1_start "Landroid - Manueller Zeitplan - 1. Fahrt - Montag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[1][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_d_1_duration "Landroid - Manueller Zeitplan - 1. Fahrt - Montag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[1][1]"] }
+Switch Landroid_CommandOut_cfg_sc_d_1_bc "Landroid - Manueller Zeitplan - 1. Fahrt - Montag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[1][2]"] }
+String Landroid_CommandOut_cfg_sc_d_2_start "Landroid - Manueller Zeitplan - 1. Fahrt - Dienstag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[2][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_d_2_duration "Landroid - Manueller Zeitplan - 1. Fahrt - Dienstag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[2][1]"] }
+Switch Landroid_CommandOut_cfg_sc_d_2_bc "Landroid - Manueller Zeitplan - 1. Fahrt - Dienstag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[2][2]"] }
+String Landroid_CommandOut_cfg_sc_d_3_start "Landroid - Manueller Zeitplan - 1. Fahrt - Mittwoch - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[3][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_d_3_duration "Landroid - Manueller Zeitplan - 1. Fahrt - Mittwoch - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[3][1]"] }
+Switch Landroid_CommandOut_cfg_sc_d_3_bc "Landroid - Manueller Zeitplan - 1. Fahrt - Mittwoch - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[3][2]"] }
+String Landroid_CommandOut_cfg_sc_d_4_start "Landroid - Manueller Zeitplan - 1. Fahrt - Donnerstag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[4][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_d_4_duration "Landroid - Manueller Zeitplan - 1. Fahrt - Donnerstag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[4][1]"] }
+Switch Landroid_CommandOut_cfg_sc_d_4_bc "Landroid - Manueller Zeitplan - 1. Fahrt - Donnerstag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[4][2]"] }
+String Landroid_CommandOut_cfg_sc_d_5_start "Landroid - Manueller Zeitplan - 1. Fahrt - Freitag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[5][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_d_5_duration "Landroid - Manueller Zeitplan - 1. Fahrt - Freitag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[5][1]"] }
+Switch Landroid_CommandOut_cfg_sc_d_5_bc "Landroid - Manueller Zeitplan - 1. Fahrt - Freitag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[5][2]"] }
+String Landroid_CommandOut_cfg_sc_d_6_start "Landroid - Manueller Zeitplan - 1. Fahrt - Samstag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[6][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_d_6_duration "Landroid - Manueller Zeitplan - 1. Fahrt - Samstag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[6][1]"] }
+Switch Landroid_CommandOut_cfg_sc_d_6_bc "Landroid - Manueller Zeitplan - 1. Fahrt - Samstag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.d[6][2]"] }
+
+// cfg.sc.dd
+String Landroid_CommandOut_cfg_sc_dd_0_start "Landroid - Manueller Zeitplan - 2. Fahrt - Sonntag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[0][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_dd_0_duration "Landroid - Manueller Zeitplan - 2. Fahrt - Sonntag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[0][1]"] }
+Switch Landroid_CommandOut_cfg_sc_dd_0_bc "Landroid - Manueller Zeitplan - 2. Fahrt - Sonntag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[0][2]"] }
+String Landroid_CommandOut_cfg_sc_dd_1_start "Landroid - Manueller Zeitplan - 2. Fahrt - Montag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[1][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_dd_1_duration "Landroid - Manueller Zeitplan - 2. Fahrt - Montag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[1][1]"] }
+Switch Landroid_CommandOut_cfg_sc_dd_1_bc "Landroid - Manueller Zeitplan - 2. Fahrt - Montag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[1][2]"] }
+String Landroid_CommandOut_cfg_sc_dd_2_start "Landroid - Manueller Zeitplan - 2. Fahrt - Dienstag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[2][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_dd_2_duration "Landroid - Manueller Zeitplan - 2. Fahrt - Dienstag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[2][1]"] }
+Switch Landroid_CommandOut_cfg_sc_dd_2_bc "Landroid - Manueller Zeitplan - 2. Fahrt - Dienstag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[2][2]"] }
+String Landroid_CommandOut_cfg_sc_dd_3_start "Landroid - Manueller Zeitplan - 2. Fahrt - Mittwoch - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[3][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_dd_3_duration "Landroid - Manueller Zeitplan - 2. Fahrt - Mittwoch - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[3][1]"] }
+Switch Landroid_CommandOut_cfg_sc_dd_3_bc "Landroid - Manueller Zeitplan - 2. Fahrt - Mittwoch - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[3][2]"] }
+String Landroid_CommandOut_cfg_sc_dd_4_start "Landroid - Manueller Zeitplan - 2. Fahrt - Donnerstag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[4][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_dd_4_duration "Landroid - Manueller Zeitplan - 2. Fahrt - Donnerstag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[4][1]"] }
+Switch Landroid_CommandOut_cfg_sc_dd_4_bc "Landroid - Manueller Zeitplan - 2. Fahrt - Donnerstag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[4][2]"] }
+String Landroid_CommandOut_cfg_sc_dd_5_start "Landroid - Manueller Zeitplan - 2. Fahrt - Freitag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[5][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_dd_5_duration "Landroid - Manueller Zeitplan - 2. Fahrt - Freitag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[5][1]"] }
+Switch Landroid_CommandOut_cfg_sc_dd_5_bc "Landroid - Manueller Zeitplan - 2. Fahrt - Freitag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[5][2]"] }
+String Landroid_CommandOut_cfg_sc_dd_6_start "Landroid - Manueller Zeitplan - 2. Fahrt - Samstag - Start" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[6][0]"] }
+Number:Time Landroid_CommandOut_cfg_sc_dd_6_duration "Landroid - Manueller Zeitplan - 2. Fahrt - Samstag - Dauer [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[6][1]"] }
+Switch Landroid_CommandOut_cfg_sc_dd_6_bc "Landroid - Manueller Zeitplan - 2. Fahrt - Samstag - Kante" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sc.dd[6][2]"] }
+
+// cfg.cmd
+Number:Dimensionless Landroid_CommandOut_cfg_cmd "Landroid - Kommando" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.cmd"] }
+String Landroid_CommandOut_cfg_cmd_txt "Landroid - Kommando [MAP(landroid_cfg_cmd.map):%s]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.cmd"] }
+
+// cfg.mz
+Number:Length Landroid_CommandOut_cfg_mz_0 "Landroid - Multi-Zone - 1. Zone - Start [%d m]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mz[0]"] }
+Number:Length Landroid_CommandOut_cfg_mz_1 "Landroid - Multi-Zone - 2. Zone - Start [%d m]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mz[1]"] }
+Number:Length Landroid_CommandOut_cfg_mz_2 "Landroid - Multi-Zone - 3. Zone - Start [%d m]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mz[2]"] }
+Number:Length Landroid_CommandOut_cfg_mz_3 "Landroid - Multi-Zone - 4. Zone - Start [%d m]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mz[3]"] }
+
+// cfg.mzv
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_0 "Landroid - Multi-Zone - 1. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[0]"] }
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_1 "Landroid - Multi-Zone - 2. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[1]"] }
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_2 "Landroid - Multi-Zone - 3. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[2]"] }
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_3 "Landroid - Multi-Zone - 4. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[3]"] }
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_4 "Landroid - Multi-Zone - 5. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[4]"] }
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_5 "Landroid - Multi-Zone - 6. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[5]"] }
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_6 "Landroid - Multi-Zone - 7. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[6]"] }
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_7 "Landroid - Multi-Zone - 8. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[7]"] }
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_8 "Landroid - Multi-Zone - 9. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[8]"] }
+Number:Dimensionless Landroid_CommandOut_cfg_mzv_9 "Landroid - Multi-Zone - 10. Fahrt in Zone" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.mzv[9]"] }
+
+// cfg.rd
+Number:Time Landroid_CommandOut_cfg_rd "Landroid - Regenverzögerung [%d min]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.rd"], stateDescription="" [min="0", max="750", step="30"]  }
+
+// cfg.sn
+String Landroid_CommandOut_cfg_sn "Landroid - Geräteinfo - Seriennummer" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.sn"] }
+
+// cfg.al.lvl @todo Was ist das? Immer 0 AutoLock
+Number:Dimensionless Landroid_CommandOut_cfg_al_lvl "Landroid - Auto-Lock - Level" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.al.lvl"] }
+
+// cfg.al.t
+Number:Time Landroid_CommandOut_cfg_al_t "Landroid - Auto-Lock - Zeit [%d s]" <time> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.al.t"] }
+
+// cfg.tq
+Number:Dimensionless Landroid_CommandOut_cfg_tq "Landroid - Drehmoment [%d %%]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.tq"] }
+
+// cfg.modules.US.enabled
+Switch Landroid_CommandOut_cfg_modules_US_enabled "Landroid - Modul - ACS - Aktiviert" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.modules.US.enabled"] }
+
+// cfg.modules.DF.cut @todo Was ist das? Immer 1 OLM during mowing? Short Cut?
+Switch Landroid_CommandOut_cfg_modules_DF_cut "Landroid - Modul - OLM - cut ?" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.modules.DF.cut"] }
+
+// cfg.modules.DF.fh @todo Was ist das? Immer 1 PLM for fast homing
+Switch Landroid_CommandOut_cfg_modules_DF_fh "Landroid - Modul - OLM - fh ?" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.modules.DF.fh"] }
+
+// cfg.modules.4G.enabled
+Switch Landroid_CommandOut_cfg_modules_4G_enabled "Landroid - Modul - FML - Aktiviert" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.modules.4G.enabled"] }
+
+// cfg.modules.4G.geo.coo
+Number:Angle Landroid_CommandOut_cfg_modules_4G_geo_coo_lat "Landroid - Modul - FML - Geo-Zaun - Position - Lat [%.6f °]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.modules.4G.geo.coo[0]"] }
+Number:Angle Landroid_CommandOut_cfg_modules_4G_geo_coo_lon "Landroid - Modul - FML - Geo-Zaun - Position - Lon [%.6f °]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.modules.4G.geo.coo[1]"] }
+Location Landroid_CommandOut_cfg_modules_4G_geo_coo "Landroid - Modul - FML - Geo-Zaun - Position" (gLandroid) ["Status"]
+
+// cfg.modules.4G.geo.rad
+Number:Length Landroid_CommandOut_cfg_modules_4G_geo_rad "Landroid - Modul - FML - Geo-Zaun - Radius [%d m]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.cfg.modules.4G.geo.rad"] }
+
+// dat.mac
+String Landroid_CommandOut_dat_mac "Landroid - Geräteinfo - MAC-Adresse" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.mac"] }
+
+// dat.fw
+String Landroid_CommandOut_dat_fw "Landroid - Geräteinfo - Firmware-Version - Major/Minor" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.fw"] }
+
+// dat.fwb
+String Landroid_CommandOut_dat_fwb "Landroid - Geräteinfo - Firmware-Version - Build" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.fwb"] }
+
+// dat.bt.t
+Number:Temperature Landroid_CommandOut_dat_bt_t "Landroid - Batterie - Temperatur [%.1f °C]" <temperature> (gLandroid) ["Measurement", "Temperature"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.bt.t"] }
+
+// dat.bt.v
+Number:ElectricPotential Landroid_CommandOut_dat_bt_v "Landroid - Batterie - Spannung [%.2f V]" (gLandroid) ["Measurement", "Voltage"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.bt.v"] }
+
+// dat.bt.p
+Number:Dimensionless Landroid_CommandOut_dat_bt_p "Landroid - Batterie - Ladung [%d %%]" <batterylevel> (gLandroid) ["Measurement", "Energy"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.bt.p"] }
+
+// dat.bt.nr
+Number:Dimensionless Landroid_CommandOut_dat_bt_nr "Landroid - Batterie - Ladungen" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.bt.nr"] }
+
+// dat.bt.c
+Number:Dimensionless Landroid_CommandOut_dat_bt_c "Landroid - Batterie - Ladestatus" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.bt.c"] }
+String Landroid_CommandOut_dat_bt_c_txt "Landroid - Batterie - Ladestatus [MAP(landroid_dat_bt_c.map):%s]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.bt.c"] }
+
+// dat.bt.m @todo Was ist das?
+Number:Dimensionless Landroid_CommandOut_dat_bt_m "Landroid - Batterie - Miss" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.bt.m"] }
+
+// dat.dmp
+Number:Angle Landroid_CommandOut_dat_dmp_0 "Landroid - Orientierung - Steigung [%.1f °]" <niveau> (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.dmp[0]"] }
+Number:Angle Landroid_CommandOut_dat_dmp_1 "Landroid - Orientierung - Neigung [%.1f °]" <niveau> (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.dmp[1]"] }
+Number:Angle Landroid_CommandOut_dat_dmp_2 "Landroid - Orientierung - Richtung [%.1f °]" (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.dmp[2]"] }
+
+// dat.st.b
+Number:Time Landroid_CommandOut_dat_st_b "Landroid - Statistik - Klingen-Arbeitszeit [%d min]" <time> (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.st.b"] }
+
+// dat.st.d
+Number:Length Landroid_CommandOut_dat_st_d "Landroid - Statistik - Entfernung [%d m]" (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.st.d"] }
+
+// dat.st.wt
+Number:Time Landroid_CommandOut_dat_st_wt "Landroid - Statistik - Rasenmäher-Arbeitszeit [%d min]" <time> (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.st.wt"] }
+
+// dat.st.bl @todo 266, 263, ... Was ist das? blade time since last reset
+Number:Time Landroid_CommandOut_dat_st_bl "Landroid - Statistik - Letzte Klingen-Arbeitszeit [%d min]" <time> (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.st.bl"] }
+
+// dat.ls
+Number:Dimensionless Landroid_CommandOut_dat_ls "Landroid - Status [%d]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.ls"] }
+String Landroid_CommandOut_dat_ls_txt "Landroid - Status [MAP(landroid_dat_ls.map):%s]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.ls"] }
+
+// dat.le
+Number:Dimensionless Landroid_CommandOut_dat_le "Landroid - Fehler [%d]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.le"] }
+String Landroid_CommandOut_dat_le_txt "Landroid - Fehler [MAP(landroid_dat_le.map):%s]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.le"] }
+
+// dat.lz
+Number:Dimensionless Landroid_CommandOut_dat_lz "Landroid - Zonenindex" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.lz"], stateDescription="" [min="0", max="9", step="1"] }
+
+// dat.rsi
+Number:Power Landroid_CommandOut_dat_rsi "Landroid - WiFi - RSI [%d dBm]" <qualityofservice> (gLandroid) ["Measurement", "Power"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.rsi"] }
+
+// dat.lk
+Switch Landroid_CommandOut_dat_lk "Landroid - Sperre" <lock> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.lk"] }
+
+// dat.act @todo Was ist das? Immer 1 Aktiviert=1 nicht aktiviert=0
+Switch Landroid_CommandOut_dat_act "Landroid - Data - Act ?" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.act"] }
+
+// dat.tr @todo Was ist das? Immer 0
+Switch Landroid_CommandOut_dat_tr "Landroid - Data - Tr ?" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.tr"] }
+
+// dat.conn
+String Landroid_CommandOut_dat_conn "Landroid - Verbindung" <network> (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.conn"] }
+
+// dat.rain.s
+Switch Landroid_CommandOut_dat_rain_s "Landroid - Regensensor" <rain> (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.rain.s"] }
+
+// dat.rain.cnt
+Number:Time Landroid_CommandOut_dat_rain_cnt "Landroid - Regenverzögerung - Verbleibende Zeit [%d min]" <time> (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.rain.cnt"] }
+
+// dat.time.r @todo Reifen rechts? ACS rechts?
+Number:Time Landroid_CommandOut_dat_time_r "Landroid - Zeit - Rad - Rechts [%d]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.time.r"] }
+
+// dat.time.l @todo Reifen links? ACS links?
+Number:Time Landroid_CommandOut_dat_time_l "Landroid - Zeit - Rad - Links [%d]" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.time.l"] }
+
+// dat.modules.US.stat
+String Landroid_CommandOut_dat_modules_US_stat "Landroid - Modul - ACS - Status" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.US.stat"] }
+
+// dat.modules.DF.stat
+String Landroid_CommandOut_dat_modules_DF_stat "Landroid - Modul - OLM - Status" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.DF.stat"] }
+
+// dat.modules.4G.mode
+Number:Dimensionless Landroid_CommandOut_dat_modules_4G_mode "Landroid - Modul - FML - Modus" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.mode"] }
+
+// dat.modules.4G.stat
+String Landroid_CommandOut_dat_modules_4G_stat "Landroid - Modul - FML - Status" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.stat"] }
+
+// dat.modules.4G.vers
+String Landroid_CommandOut_dat_modules_4G_vers "Landroid - Modul - FML - Version" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.vers"] }
+
+// dat.modules.4G.batt.v
+Number:ElectricPotential Landroid_CommandOut_dat_modules_4G_batt_v "Landroid - Modul - FML - Spannung [%.2f V]" (gLandroid) ["Measurement", "Voltage"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.batt.v"] }
+
+// dat.modules.4G.batt.l
+Number:Dimensionless Landroid_CommandOut_dat_modules_4G_batt_l "Landroid - Modul - FML - Ladung [%d %%]" (gLandroid) ["Measurement", "Energy"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.batt.l"] }
+
+// dat.modules.4G.batt.t
+Number:Temperature Landroid_CommandOut_dat_modules_4G_batt_t "Landroid - Modul - FML - Temperatur [%d °C]" <temperature> (gLandroid) ["Measurement", "Temperature"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.batt.t"] }
+
+// dat.modules.4G.network.status
+String Landroid_CommandOut_dat_modules_4G_network_status "Landroid - Modul - FML - Netzwerk - Status" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.network.status"] }
+
+// dat.modules.4G.network.ICCID
+String Landroid_CommandOut_dat_modules_4G_network_ICCID "Landroid - Modul - FML - Netzwerk - ICCID" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.network.ICCID"] }
+
+// dat.modules.4G.network.IMSI
+String Landroid_CommandOut_dat_modules_4G_network_IMSI "Landroid - Modul - FML - Netzwerk - IMSI" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.network.IMSI"] }
+
+// dat.modules.4G.network.rssi
+Number:Power Landroid_CommandOut_dat_modules_4G_network_rssi "Landroid - Modul - FML - Netzwerk - RSSI  [%d dBm]" (gLandroid) ["Measurement", "Power"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.network.rssi"] }
+
+// dat.modules.4G.geo.stat
+String Landroid_CommandOut_dat_modules_4G_geo_stat "Landroid - Modul - FML - Geo - Status" (gLandroid) ["Status"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.geo.stat"] }
+
+// dat.modules.4G.gps.coo
+Number:Angle Landroid_CommandOut_dat_modules_4G_gps_coo_lat "Landroid - Modul - FML - GPS - Position - Lat [%.6f °]" (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.gps.coo[0]"] }
+Number:Angle Landroid_CommandOut_dat_modules_4G_gps_coo_lon "Landroid - Modul - FML - GPS - Position - Lon [%.6f °]" (gLandroid) ["Measurement"] { channel="mqtt:topic:landroid:command:out" [profile="transform:JSONPATH", function="$.dat.modules.4G.gps.coo[1]"] }
+Location Landroid_CommandOut_dat_modules_4G_gps_coo "Landroid - Modul - FML - GPS - Position" (gLandroid) ["Measurement"]
+
+// @todo dat.modules.RL.stat (RadioLink)
+// @todo voice control?
+
+// @todo Type number : ChCmd "Landroid - Kommando" [ commandTopic="landroid/commandIn", formatBeforePublish="{\"cmd\":%d}" ]

@@ -1,0 +1,9 @@
+// Strompreis für Netzbezug und Einspeisung
+
+rule "Strompreise"
+when
+    Time cron "0 0 0 * * ?" // every day
+then
+    Strompreis_Einspeisung.postUpdate((8.16*(10/37.95) + 7.93*(1-10/37.95)) * 1.19)
+    Strompreis_Netzbezug.postUpdate(32.92) // ab 01.04.2022
+end

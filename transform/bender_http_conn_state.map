@@ -1,0 +1,8 @@
+NULL=NULL
+
+no_vehicle_connected=No vehicle connected
+vehicle_connected_schuko=Vehicle connected Schuko
+vehicle_charging_schuko=Vehicle Charging Schuko
+vehicle_connected_type2=Vehicle Connected Type 2
+vehicle_charging_type2=Vehicle Charging Type 2
+vehicle_connector_error=Vehicle Connector Error
